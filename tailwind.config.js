@@ -9,36 +9,43 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#0f172a", // Slate 900
-          light: "#1e293b",   // Slate 800
-          dark: "#020617",    // Slate 950
+          DEFAULT: "#ffffff", // Light mode bg
+          dark: "#020617",    // Dark mode bg (Slate 950)
         },
         secondary: {
-          DEFAULT: "#3b82f6", // Blue 500
-          light: "#60a5fa",   // Blue 400
-          dark: "#2563eb",    // Blue 600
+          DEFAULT: "#0f172a", // Light mode text (Slate 900)
+          dark: "#f8fafc",    // Dark mode text (Slate 50)
         },
         accent: {
-          DEFAULT: "#8b5cf6", // Violet 500
-          light: "#a78bfa",   // Violet 400
-          dark: "#7c3aed",    // Violet 600
+          DEFAULT: "#0ea5e9", // Sky Blue
+          light: "#38bdf8",
+          dark: "#0284c7",
         },
-        surface: {
-          DEFAULT: "#ffffff",
-          dark: "#0f172a",
-        },
-        muted: {
-          DEFAULT: "#64748b", // Slate 500
-          dark: "#94a3b8",    // Slate 400
+        slate: {
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
+          950: '#020617',
         }
+      },
+      borderRadius: {
+        'premium': '2px',
+        'editorial': '0px',
       },
       fontFamily: {
         sans: ['"Inter"', 'system-ui', 'sans-serif'],
-        display: ['"Outfit"', 'sans-serif'],
+        display: ['"Cormorant Garamond"', 'serif'],
       },
       backgroundImage: {
-        'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))',
-        'premium-gradient': 'linear-gradient(to right, #3b82f6, #8b5cf6)',
+        'editorial-gradient': 'linear-gradient(to right, var(--tw-gradient-from), var(--tw-gradient-to))',
+        'accent-gradient': 'linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%)',
       },
       backdropBlur: {
         xs: '2px',

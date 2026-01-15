@@ -9,7 +9,6 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import ThemeToggle from './components/ThemeToggle';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -24,11 +23,7 @@ function App() {
 
   return (
     <div className={`min-h-screen transition-colors duration-500 ${darkMode ? 'dark' : ''}`}>
-      <div className="fixed top-24 right-8 z-[60]">
-        <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
-      </div>
-
-      <Header />
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
       <main>
         <Hero />

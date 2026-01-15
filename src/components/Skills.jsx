@@ -1,5 +1,4 @@
 import React from 'react';
-import { Code, Database, Cloud, Cpu } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cvData } from '../data/cvData';
 
@@ -7,93 +6,99 @@ const Skills = () => {
   const { skills } = cvData;
 
   const categories = [
-    { title: 'Frontend', items: skills.frontend, icon: <Code className="w-8 h-8" /> },
-    { title: 'Backend', items: skills.backend, icon: <Database className="w-8 h-8" /> },
-    { title: 'Herramientas', items: skills.tools, icon: <Cloud className="w-8 h-8" /> }
+    { title: '01 / STACK FRONTEND', items: skills.frontend },
+    { title: '02 / ARQUITECTURA BACKEND', items: skills.backend },
+    { title: '03 / DEVOPS & INFRAESTRUCTURA', items: skills.tools }
   ];
 
   return (
-    <section id="skills" className="section-container relative overflow-hidden">
-      <div className="text-center mb-24">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-6xl font-black mb-6">Habilidades</h2>
-          <div className="w-32 h-2 bg-premium-gradient mx-auto rounded-full"></div>
-        </motion.div>
-      </div>
+    <section id="skills" className="relative py-40 bg-white dark:bg-black transition-colors duration-700 overflow-hidden border-t border-black/5 dark:border-white/5">
+      <div className="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 relative z-10">
 
-      <div className="grid lg:grid-cols-3 gap-10">
-        {categories.map((cat, i) => (
-          <motion.div
-            key={cat.title}
-            className="glass-card p-10 flex flex-col"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.2 }}
-          >
-            <div className="flex items-center mb-10">
-              <span className="p-4 bg-secondary/10 text-secondary rounded-2xl mr-5">
-                {cat.icon}
-              </span>
-              <h3 className="text-3xl font-black tracking-tight">{cat.title}</h3>
-            </div>
+        {/* Header */}
+        <div className="flex flex-col space-y-8 mb-32">
+          <div className="flex items-center space-x-6">
+            <span className="text-[10px] font-mono tracking-[0.4em] text-black/20 dark:text-white/20 uppercase">03 / CAPACIDADES</span>
+            <div className="h-px w-12 bg-black/10 dark:bg-white/10" />
+          </div>
+          <h2 className="text-6xl md:text-8xl font-display font-medium text-black dark:text-white tracking-tighter leading-none">
+            Ecosistema <br /> <span className="text-black/5 dark:text-white/5 text-outline">Tecnológico</span>
+          </h2>
+        </div>
 
-            <div className="space-y-8 flex-grow">
-              {cat.items.map((skill) => (
-                <div key={skill.name} className="group">
-                  <div className="flex justify-between items-end mb-3">
-                    <span className="text-lg font-bold text-slate-700 dark:text-slate-300 group-hover:text-secondary transition-colors">
+        {/* Technical Grid */}
+        <div className="grid lg:grid-cols-3 gap-16 lg:gap-24">
+          {categories.map((cat, i) => (
+            <motion.div
+              key={cat.title}
+              className="space-y-12"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <h3 className="text-[10px] font-mono tracking-widest text-black/30 dark:text-white/30 uppercase border-b border-black/5 dark:border-white/5 pb-4">
+                {cat.title}
+              </h3>
+
+              <div className="flex flex-col space-y-6">
+                {cat.items.map((skill) => (
+                  <div key={skill.name} className="group flex items-baseline justify-between transition-all duration-500">
+                    <span className="text-xl font-display font-light text-black/60 dark:text-white/60 group-hover:text-black dark:group-hover:text-white group-hover:translate-x-2 transition-all">
                       {skill.name}
                     </span>
-                    <span className="text-sm font-black text-slate-400">{skill.level}%</span>
+                    <span className="text-[8px] font-mono text-black/10 dark:text-white/10 group-hover:text-black/30 dark:group-hover:text-white/30 transition-colors uppercase">
+                      Expertise
+                    </span>
                   </div>
-                  <div className="skill-bar-container">
-                    <motion.div
-                      className="skill-bar-fill"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, ease: "easeOut" }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Soft Skills Section */}
-      <motion.div
-        className="mt-20 glass-card p-12 text-center"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        <div className="inline-flex items-center justify-center p-4 bg-accent/10 rounded-2xl text-accent mb-8">
-          <Cpu className="w-10 h-10" />
-        </div>
-        <h3 className="text-3xl font-black mb-10">Habilidades Blandas</h3>
-        <div className="flex flex-wrap justify-center gap-4">
-          {skills.soft.map((skill, idx) => (
-            <motion.span
-              key={skill}
-              className="px-8 py-4 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl font-bold text-lg text-slate-600 dark:text-slate-300 shadow-sm hover:shadow-xl hover:border-accent hover:text-accent transition-all cursor-default"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              whileHover={{ y: -5 }}
-            >
-              {skill}
-            </motion.span>
+                ))}
+              </div>
+            </motion.div>
           ))}
         </div>
-      </motion.div>
+
+        {/* Human Focus / Soft Skills */}
+        <motion.div
+          className="mt-48 pt-40 border-t border-black/5 dark:border-white/5"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid lg:grid-cols-12 gap-16 items-start">
+            <div className="lg:col-span-5">
+              <div className="space-y-8">
+                <span className="text-[10px] font-mono tracking-[0.5em] text-black/20 dark:text-white/20 uppercase">04 / DIMENSIÓN HUMANA</span>
+                <h3 className="text-4xl md:text-6xl font-display font-medium text-black dark:text-white tracking-tighter leading-tight">
+                  Capacidades <br /> <span className="italic font-light">Transversales</span>
+                </h3>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-12 gap-x-16">
+                {skills.soft.map((skill, idx) => (
+                  <motion.div
+                    key={skill}
+                    className="group space-y-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                  >
+                    <div className="flex items-center space-x-4">
+                      <span className="text-[10px] font-mono text-black/20 dark:text-white/20">0{idx + 1}</span>
+                      <h4 className="text-[10px] font-bold tracking-[0.3em] text-black dark:text-white uppercase">
+                        {skill}
+                      </h4>
+                    </div>
+                    <div className="h-px w-full bg-black/5 dark:bg-white/5" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };

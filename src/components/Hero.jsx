@@ -1,143 +1,121 @@
 import React from 'react';
-import { ArrowDown, Sparkles, Send, FileText } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cvData } from '../data/cvData';
 
 const Hero = () => {
   const { personalInfo } = cvData;
 
-  return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[120px] -z-10 animate-pulse" />
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-accent/20 rounded-full blur-[100px] -z-10" />
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3
+      }
+    }
+  };
 
-      <div className="section-container grid md:grid-cols-2 gap-16 items-center">
+  const itemVariants = {
+    hidden: { y: 40, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
+  return (
+    <section className="relative min-h-screen flex flex-col justify-center bg-white dark:bg-black transition-colors duration-700 overflow-hidden pt-32">
+      {/* Background Text Outline */}
+      <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden">
+        <span className="text-[30vw] font-display font-medium text-black/[0.02] dark:text-white/[0.02] text-outline opacity-20 whitespace-nowrap">
+          {personalInfo.initials}
+        </span>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 w-full relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="space-y-24"
         >
-          <motion.div
-            className="inline-flex items-center space-x-2 mb-8 px-4 py-2 rounded-2xl glass-card"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <Sparkles className="w-4 h-4 text-accent" />
-            <span className="text-sm font-bold text-slate-600 dark:text-slate-300 tracking-wide uppercase">
+          {/* Availability Indicator */}
+          <motion.div variants={itemVariants} className="flex items-center space-x-6">
+            <div className="w-1.5 h-1.5 bg-black dark:bg-white animate-pulse" />
+            <span className="text-[10px] font-mono tracking-[0.4em] text-black/40 dark:text-white/40 uppercase">
               {personalInfo.availability}
             </span>
           </motion.div>
 
-          <h1 className="text-6xl md:text-8xl font-black mb-6 leading-none tracking-tighter">
-            Hola, soy <br />
-            <span className="text-gradient">
-              {personalInfo.name}
-            </span>
-          </h1>
-
-          <h2 className="text-2xl md:text-4xl font-semibold text-slate-600 dark:text-slate-400 mb-8 font-display">
-            {personalInfo.specialty}
-          </h2>
-
-          <p className="text-xl text-slate-500 dark:text-slate-400 mb-10 max-w-xl leading-relaxed">
-            {personalInfo.heroDescription}
-          </p>
-
-          <div className="flex flex-wrap gap-5 no-print">
-            <motion.a
-              href="#contact"
-              className="btn-primary scale-110"
-              whileHover={{ scale: 1.15 }}
-              whileTap={{ scale: 0.95 }}
+          {/* Main Title Stack */}
+          <div className="flex flex-col">
+            <motion.h1
+              variants={itemVariants}
+              className="text-[12vw] lg:text-[10vw] font-display font-medium leading-[0.85] tracking-tighter text-black dark:text-white"
             >
-              <Send className="w-5 h-5 mr-2" />
-              Contáctame
-            </motion.a>
-            <motion.button
-              onClick={() => window.print()}
-              className="btn-outline scale-110"
-              whileHover={{ scale: 1.15 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FileText className="w-5 h-5 mr-2" />
-              Descargar CV
-            </motion.button>
-          </div>
+              {personalInfo.name.split(' ')[0]} <br />
+              <span className="text-black/5 dark:text-white/5 text-outline">{personalInfo.name.split(' ').slice(1).join(' ')}</span>
+            </motion.h1>
 
-          <div className="mt-16 flex items-center space-x-8 opacity-50 dark:opacity-30">
-            <div className="flex flex-col">
-              <span className="text-3xl font-black">{personalInfo.experienceYears}+</span>
-              <span className="text-xs uppercase font-bold tracking-widest">Años de Exp.</span>
-            </div>
-            <div className="w-px h-10 bg-slate-300 dark:bg-slate-700" />
-            <div className="flex flex-col">
-              <span className="text-3xl font-black">100%</span>
-              <span className="text-xs uppercase font-bold tracking-widest">Compromiso</span>
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="relative hidden md:block"
-        >
-          <div className="relative w-full aspect-square max-w-[500px] ml-auto">
-            {/* Visual element representing a modern profile/abstract shape */}
-            <div className="absolute inset-0 bg-gradient-to-br from-secondary to-accent rounded-[60px] blur-2xl opacity-20 transform rotate-6 animate-pulse" />
-            <div className="relative glass-card w-full h-full flex items-center justify-center overflow-hidden border-4 border-white dark:border-slate-800">
-              <motion.div
-                className="text-[200px] font-black pointer-events-none opacity-10 dark:opacity-5 select-none"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              >
-                {personalInfo.initials}
-              </motion.div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-9xl font-black text-gradient drop-shadow-2xl">
-                  {personalInfo.initials}
-                </div>
-              </div>
-
-              {/* Floating blobs */}
-              <motion.div
-                className="absolute top-10 right-10 w-20 h-20 bg-secondary/30 rounded-full blur-xl"
-                animate={{ y: [0, 20, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-              />
-              <motion.div
-                className="absolute bottom-10 left-10 w-32 h-32 bg-accent/30 rounded-full blur-2xl"
-                animate={{ y: [0, -30, 0] }}
-                transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-              />
-            </div>
-
-            {/* Status badges */}
             <motion.div
-              className="absolute -top-6 -right-6 glass-card p-4 shadow-2xl"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
+              variants={itemVariants}
+              className="mt-12 max-w-3xl"
             >
-              <div className="flex items-center space-x-3">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-ping" />
-                <span className="text-sm font-bold uppercase tracking-tighter">Remote Ready</span>
-              </div>
+              <p className="text-xl lg:text-2xl font-display font-light text-black/60 dark:text-white/60 leading-relaxed indent-24">
+                {personalInfo.heroDescription}
+              </p>
             </motion.div>
           </div>
+
+          {/* Core Focus / Tech Detail */}
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col md:flex-row md:items-end justify-between gap-12 pt-12 border-t border-black/5 dark:border-white/5"
+          >
+            <div className="space-y-4">
+              <span className="text-[10px] font-mono tracking-widest text-black/30 dark:text-white/30 uppercase">Especialización</span>
+              <h2 className="text-2xl font-display italic font-light tracking-tight text-black dark:text-white">
+                {personalInfo.specialty.split('|')[0]}
+              </h2>
+            </div>
+
+            <div className="flex flex-col items-start md:items-end space-y-4">
+              <span className="text-[10px] font-mono tracking-widest text-black/30 dark:text-white/30 uppercase">Evolución</span>
+              <span className="text-5xl font-display font-medium tracking-tighter text-black dark:text-white">
+                {personalInfo.experienceYears}+ AÑOS
+              </span>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 
-      <motion.a
-        href="#about"
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 p-4 rounded-full glass-card hover:bg-slate-50 dark:hover:bg-slate-800 transition-all"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
+      {/* Modern Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-12 right-12 hidden lg:flex flex-col items-center space-y-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
       >
-        <ArrowDown className="w-6 h-6 text-slate-400" />
-      </motion.a>
+        <span className="text-[10px] font-mono tracking-[0.5em] text-black/20 dark:text-white/20 uppercase [writing-mode:vertical-lr] rotate-180">
+          EXPLORAR MÁS
+        </span>
+        <div className="w-px h-24 bg-black/10 dark:bg-white/10 relative overflow-hidden">
+          <motion.div
+            className="absolute top-0 left-0 w-full bg-black dark:bg-white"
+            animate={{
+              height: ["0%", "100%", "0%"],
+              top: ["0%", "0%", "100%"]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        </div>
+      </motion.div>
     </section>
   );
 };

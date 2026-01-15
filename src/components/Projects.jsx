@@ -1,120 +1,106 @@
 import React from 'react';
-import { ExternalLink, Github, Star, Layout } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 import { cvData } from '../data/cvData';
 
 const Projects = () => {
   const { projects, contact } = cvData;
 
   return (
-    <section id="projects" className="bg-slate-50 dark:bg-primary-dark/30 py-32">
-      <div className="section-container">
-        <div className="text-center mb-24">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-6xl font-black mb-6">Proyectos</h2>
-            <div className="w-32 h-2 bg-premium-gradient mx-auto rounded-full"></div>
-            <p className="text-xl text-slate-500 dark:text-slate-400 mt-8 max-w-2xl mx-auto">
-              Una selección de trabajos recientes que muestran mi capacidad para resolver problemas complejos.
-            </p>
-          </motion.div>
+    <section id="projects" className="bg-white dark:bg-black py-40 overflow-hidden border-t border-black/5 dark:border-white/5 transition-colors duration-700">
+      <div className="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 relative z-10">
+
+        {/* Header */}
+        <div className="flex flex-col space-y-8 mb-32">
+          <div className="flex items-center space-x-6">
+            <span className="text-[10px] font-mono tracking-[0.4em] text-black/20 dark:text-white/20 uppercase">04 / PORTAFOLIO</span>
+            <div className="h-px w-12 bg-black/10 dark:bg-white/10" />
+          </div>
+          <h2 className="text-6xl md:text-8xl font-display font-medium text-black dark:text-white tracking-tighter leading-none">
+            Trabajos <br /> <span className="text-black/5 dark:text-white/5 text-outline">Curados</span>
+          </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className={`group glass-card overflow-hidden flex flex-col ${project.featured ? 'md:col-span-2 lg:col-span-3 lg:flex-row' : ''
-                }`}
+              className="group flex flex-col space-y-8 pb-16 border-b border-black/5 dark:border-white/5"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <div className={`relative overflow-hidden ${project.featured ? 'lg:w-1/2 min-h-[300px]' : 'h-64'
-                }`}>
-                <div className="absolute inset-0 bg-premium-gradient opacity-60 mix-blend-multiply transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 flex items-center justify-center p-12">
-                  <div className="text-center transform transition-all duration-500 group-hover:scale-110">
-                    <Layout className="w-20 h-20 text-white/50 mb-4 mx-auto" />
-                    <div className="text-4xl font-black text-white tracking-widest uppercase opacity-20 group-hover:opacity-40 transition-opacity">
-                      {project.title.split(' ')[0]}
-                    </div>
-                  </div>
-                </div>
-
-                {project.featured && (
-                  <div className="absolute top-6 left-6 flex items-center bg-white dark:bg-slate-900 px-4 py-2 rounded-2xl shadow-xl">
-                    <Star className="w-5 h-5 text-yellow-500 mr-2 fill-yellow-500" />
-                    <span className="text-sm font-black uppercase tracking-widest">Featured Project</span>
-                  </div>
-                )}
+              <div className="flex justify-between items-start">
+                <span className="text-[10px] font-mono text-black/20 dark:text-white/20 group-hover:text-black dark:group-hover:text-white transition-colors">
+                  PROYECTO — 0{index + 1}
+                </span>
+                <span className="text-[10px] font-mono italic text-black/10 dark:text-white/10 uppercase tracking-widest">
+                  {project.technologies[0]}
+                </span>
               </div>
 
-              <div className={`p-10 flex flex-col justify-between ${project.featured ? 'lg:w-1/2' : ''
-                }`}>
-                <div>
-                  <h3 className="text-3xl font-black mb-4 group-hover:text-gradient transition-all">
-                    {project.title}
-                  </h3>
-                  <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
-                    {project.description}
-                  </p>
+              <div className="space-y-6">
+                <h3 className="text-4xl lg:text-5xl font-display font-medium text-black dark:text-white tracking-tighter leading-none group-hover:translate-x-4 transition-transform duration-700">
+                  {project.title}
+                </h3>
+                <p className="text-xl font-display font-light text-black/60 dark:text-white/60 leading-relaxed">
+                  {project.description}
+                </p>
+              </div>
 
-                  <div className="flex flex-wrap gap-3 mb-10">
-                    {project.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-4 py-2 bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 rounded-xl text-sm font-bold border border-slate-200/50 dark:border-slate-700/50"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              <div className="flex flex-wrap gap-x-8 gap-y-4 pt-4">
+                {project.technologies.map((tech) => (
+                  <span key={tech} className="text-[10px] font-bold tracking-[0.2em] text-black/30 dark:text-white/30 uppercase">
+                    {tech}
+                  </span>
+                ))}
+              </div>
 
-                <div className="flex items-center space-x-6">
-                  <motion.a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-slate-500 hover:text-secondary font-black text-sm uppercase tracking-widest transition-colors"
-                    whileHover={{ x: 5 }}
-                  >
-                    <Github className="w-5 h-5 mr-2" />
-                    Source
-                  </motion.a>
-
-                  <motion.a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary !py-2.5 !px-6"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
-                  </motion.a>
-                </div>
+              <div className="pt-8 flex space-x-12">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] font-bold tracking-[0.3em] uppercase border-b border-black/10 dark:border-white/10 hover:border-black dark:hover:border-white transition-colors pb-1"
+                >
+                  SOURCE
+                </a>
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] font-bold tracking-[0.3em] uppercase border-b border-black/10 dark:border-white/10 hover:border-black dark:hover:border-white transition-colors pb-1"
+                >
+                  VISTA
+                </a>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-20">
+        {/* Global CTA */}
+        <div className="mt-48">
           <motion.a
             href={contact.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline px-12 py-5 text-xl group"
-            whileHover={{ scale: 1.05 }}
+            className="group flex flex-col space-y-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
           >
-            <Github className="w-6 h-6 mr-3 transition-transform group-hover:rotate-12" />
-            <span>Explorar más en GitHub</span>
+            <div className="flex items-center space-x-6">
+              <span className="text-[10px] font-mono tracking-[0.4em] text-black/20 dark:text-white/20 uppercase">CONTINUAR</span>
+              <div className="h-px w-full bg-black/5 dark:bg-white/5" />
+            </div>
+            <div className="flex items-baseline justify-between transition-all duration-700">
+              <h3 className="text-4xl md:text-7xl font-display font-medium text-black dark:text-white tracking-tighter leading-none">
+                Explorar archivos <span className="italic font-light">en GitHub</span>
+              </h3>
+              <ArrowUpRight className="w-12 h-12 lg:w-20 lg:h-20 text-black/10 dark:text-white/10 group-hover:text-black dark:group-hover:text-white group-hover:translate-x-4 group-hover:-translate-y-4 transition-all duration-700" />
+            </div>
           </motion.a>
         </div>
       </div>
