@@ -1,23 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #ffffff;
-  --color-secondary: #000000;
-  --color-accent: #000000;
-  --color-accent-soft: #f1f5f9;
+  --color-primary: #0066FF;
+  --color-primary-dark: #0052CC;
+  --color-secondary: #1A1A1A;
+  --color-accent: #0066FF;
+  --color-accent-soft: #F0F7FF;
+
+  --color-bg-light: #FFFFFF;
+  --color-bg-dark: #0A0A0B;
 
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Cormorant Garamond", serif;
+  --font-display: "Outfit", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --radius-premium: 0px;
+  --radius-premium: 4px;
   --radius-editorial: 0px;
 
   --animate-float: float 6s ease-in-out infinite;
 }
 
 @layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap');
 
   html {
     scroll-behavior: smooth;
@@ -25,8 +29,8 @@
   }
 
   body {
-    @apply bg-white text-black font-sans transition-colors duration-500 overflow-x-hidden selection:bg-black selection:text-white;
-    @apply dark:bg-black dark:text-white dark:selection:bg-white dark:selection:text-black;
+    @apply bg-[var(--color-bg-light)] text-black font-sans transition-colors duration-500 overflow-x-hidden selection:bg-primary selection:text-white hyphens-auto break-words;
+    @apply dark:bg-[var(--color-bg-dark)] dark:text-white dark:selection:bg-primary dark:selection:text-white;
   }
 
   h1,
@@ -35,28 +39,33 @@
   h4,
   h5,
   h6 {
-    @apply font-display tracking-tighter;
+    @apply font-display tracking-tight leading-tight;
   }
 }
 
 @layer components {
   .section-container {
-    @apply max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 py-40;
+    @apply max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 py-32 md:py-40 lg:py-60;
   }
 
   .btn-minimal {
-    @apply inline-flex items-center space-x-4 border border-black px-8 py-4 text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-500 hover:bg-black hover:text-white;
-    @apply dark:border-white dark:hover:bg-white dark:hover:text-black;
+    @apply inline-flex items-center space-x-4 border border-black px-8 py-4 text-[10px] font-bold tracking-[0.3em] uppercase transition-all duration-500 hover:bg-primary hover:text-white hover:border-primary;
+    @apply dark:border-white/20 dark:hover:bg-primary dark:hover:text-white dark:hover:border-primary;
   }
 
   .text-outline {
-    -webkit-text-stroke: 1px currentColor;
+    -webkit-text-stroke: 1.5px currentColor;
     color: transparent;
+    transition: all 0.5s ease;
+  }
+
+  .text-outline:hover {
+    -webkit-text-stroke: 1px var(--color-primary);
   }
 
   .glass-card {
-    @apply border border-black/5 bg-white/50 backdrop-blur-sm p-12 transition-all duration-500;
-    @apply dark:border-white/5 dark:bg-black/50;
+    @apply border border-black/5 bg-white/40 backdrop-blur-xl p-12 transition-all duration-500 shadow-sm hover:shadow-xl hover:border-primary/20;
+    @apply dark:border-white/5 dark:bg-white/5;
   }
 
   .editorial-line {
@@ -71,11 +80,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-primary;
+  @apply bg-transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-black/5 hover:bg-accent/40 transition-colors;
+  @apply bg-primary/20 hover:bg-primary/40 transition-colors;
 }
 
 /* Secciones Asimétricas - Utilidades */

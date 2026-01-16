@@ -5,13 +5,15 @@ export const cvData = {
     specialty: "Ingeniero de Sistemas | Especialista en Automatización y Backend",
     experienceYears: "8",
     availability: "Entrega de soluciones de alta criticidad",
-    heroDescription: "Ingeniero de Sistemas con más de 8 años de experiencia especializado en la arquitectura de sistemas complejos y automatización de procesos bancarios. Experto en transformar requerimientos de negocio en soluciones técnicas robustas y escalables.",
+    heroDescription: "Ingeniero de Sistemas con más de 8 años de trayectoria profesional, proyectando soluciones técnicas robustas y escalables. Especializado en arquitectura de sistemas, automatización bancaria y desarrollo full-stack de alto impacto.",
     aboutHistory: [
-      "Graduado de la Universidad Nacional Experimental Politécnica (UNEXPO) - Vicerrectorado Luis Caballero Mejías, mi carrera se ha forjado en la intersección de la ingeniería de sistemas y el desarrollo de software de alto impacto.",
-      "Con una sólida base en arquitecturas Java y procesos de Core Banking, actualmente lidero la automatización en Amagi, integrando monitoreo de auditoría en MongoDB y visualización en Grafana para asegurar la excelencia operativa.",
-      "Mi enfoque combina la rigurosidad técnica con la agilidad necesaria para resolver incidencias críticas y optimizar procesos masivos de datos."
+      "Graduado de la Universidad Nacional Experimental Politécnica (UNEXPO), mi carrera se ha forjado en la intersección de la ingeniería de sistemas y el desarrollo de software crítico.",
+      "Con una sólida base en arquitecturas Java, Core Banking y ecosistemas .NET, actualmente lidero la automatización en Amagi, integrando monitoreo de auditoría en MongoDB y visualización en Grafana para asegurar la excelencia operativa.",
+      "Mi trayectoria abarca desde el desarrollo de procesos estadísticos complejos con lenguaje R hasta la optimización de flujos de datos masivos para las principales entidades bancarias de Venezuela."
     ],
-    initials: "HC"
+    initials: "HC",
+    profileImage: "/src/assets/profile.png",
+    philosophy: "La ingeniería no es solo resolver problemas, es diseñar el futuro con precisión y elegancia técnica integral."
   },
   experiences: [
     {
@@ -20,7 +22,7 @@ export const cvData = {
       company: "Amagi",
       period: "12/2024 - Presente",
       location: "Remoto / Caracas",
-      description: "Liderazgo técnico en la automatización de pruebas para el Core Banking de Banplus. Implementación de sistemas de monitoreo y auditoría.",
+      description: "Liderazgo técnico en la automatización de pruebas para el Core Banking de Banplus e implementación de sistemas de monitoreo y auditoría.",
       achievements: [
         "Arquitectura de suite de pruebas con Selenium y Python para flujos críticos y OTP",
         "Configuración de tableros en Grafana para monitoreo de ejecuciones en tiempo real",
@@ -44,24 +46,43 @@ export const cvData = {
     },
     {
       id: 3,
-      title: "Desarrollador Full Stack / Junior",
-      company: "Acorde Internacional 9S",
-      period: "2018 - 2023",
+      title: "Consultor Técnico Fijo",
+      company: "Bit Consulting",
+      period: "DIC 2018 – MAR 2023",
       location: "Caracas, Venezuela",
-      description: "Desarrollo de aplicaciones web modernas bajo metodologías ágiles.",
+      description: "Implantación de sistemas masivos, soporte técnico L3 y desarrollo de procesos estadísticos complejos.",
       achievements: [
-        "Desarrollo de interfaces dinámicas con Angular 5+ y Bootstrap",
-        "Integración de servicios REST y gestión de despliegues en AWS",
-        "Mantenimiento y resolución de bugs en sistemas productivos"
+        "Gestión experta de bases de datos Oracle y SQL Server (SP, Triggers, Vistas)",
+        "Desarrollo .NET (C# / VB) para procesos matemáticos e indicadores de efectividad",
+        "Implementación de calibración automática usando lenguaje R para análisis estadístico",
+        "Desarrollo de Web Services SOAP (ASMX) y manejo de Crystal Reports",
+        "Administración de servidores Windows Server 2012 R2, Tomcat y WebSphere",
+        "Mantenimiento de interfaces en Java y control de versiones con SVN"
       ]
     },
     {
       id: 4,
+      title: "Desarrollador Junior Full Stack",
+      company: "Acorde Internacional 9S",
+      period: "2018 - 2023",
+      location: "Caracas, Venezuela",
+      description: "Desarrollo de aplicaciones web modernas bajo metodologías ágiles y gestión de infraestructura cloud.",
+      achievements: [
+        "Desarrollo de plataforma de gestión hotelera y sistemas de transporte logístico para Colombia",
+        "Desarrollo de SPAs utilizando Angular 5+ bajo arquitectura MVC",
+        "Manejo y despliegue de infraestructura en AWS (Amazon Web Services)",
+        "Implementación de interfaces con JS, jQuery, HTML5, CSS3 y Bootstrap 4",
+        "Pruebas de APIs REST (CRUD) con Postman y gestión de servidores XAMPP",
+        "Colaboración activa bajo metodología SCRUM para resolución de bugs"
+      ]
+    },
+    {
+      id: 5,
       title: "Desarrollador .NET Junior",
       company: "Zeven Software",
       period: "2017 - 2018",
       location: "Caracas, Venezuela",
-      description: "Inicio de carrera profesional enfocado en el ecosistema Microsoft.",
+      description: "Desarrollo de servicios base y lógica de negocio en el ecosistema Microsoft.",
       achievements: [
         "Desarrollo de servicios web SOAP y REST utilizando C# y ASP.NET",
         "Implementación de lógica de negocio y capas de acceso a datos",
@@ -76,13 +97,6 @@ export const cvData = {
       institution: "Universidad Nacional Experimental Politécnica (UNEXPO) - Vicerrectorado Luis Caballero Mejías",
       period: "2010 - 2017",
       description: "Especialización en desarrollo de sistemas, algoritmos y gestión de proyectos tecnológicos."
-    },
-    {
-      id: 2,
-      degree: "Bachiller en Ciencias",
-      institution: "Liceo de Aplicación",
-      period: "2005 - 2010",
-      description: "Formación básica con énfasis en ciencias exactas."
     }
   ],
   certifications: [
@@ -102,18 +116,17 @@ export const cvData = {
     backend: [
       { name: 'Arquitectura Java (Spring Boot)', level: 95 },
       { name: 'Python (Selenium / Automatización)', level: 90 },
-      { name: 'C# / .NET / Web API', level: 85 },
+      { name: 'C# / .NET / Web API', level: 90 },
       { name: 'Diseño de APIs REST y SOAP', level: 95 },
-      { name: 'Oracle / SQL Server / PostgreSQL', level: 90 },
-      { name: 'Auditoría en MongoDB / Redis', level: 85 }
+      { name: 'Oracle / SQL Server / PostgreSQL', level: 95 },
+      { name: 'Lenguaje R / Procesos Estadísticos', level: 85 }
     ],
     tools: [
       { name: 'Git / SVN / GitHub', level: 95 },
-      { name: 'Docker / Servidores Linux', level: 80 },
-      { name: 'Grafana / Dashboarding', level: 85 },
-      { name: 'AWS / Infraestructura Cloud', level: 75 },
-      { name: 'Weblogic / Tomcat / IIS', level: 85 },
-      { name: 'Postman / Swagger / Documentación', level: 95 }
+      { name: 'Docker / Linux / AWS', level: 85 },
+      { name: 'Grafana / Dashboarding', level: 90 },
+      { name: 'Windows Server / WebSphere / Tomcat', level: 85 },
+      { name: 'Postman / Crystal Reports / Eclipse', level: 95 }
     ],
     soft: [
       'Liderazgo de Equipos Técnicos',
@@ -149,11 +162,11 @@ export const cvData = {
     }
   ],
   contact: {
-    email: "humbertodcr2911@gmail.com",
-    phone: "+58 412 XXX XXXX",
+    email: "hdavid2911@gmail.com",
+    phone: "+58 4242247570",
     location: "Caracas, Venezuela",
     github: "https://github.com/humbertodcr2911",
-    linkedin: "https://linkedin.com/in/humbertochacon",
+    linkedin: "https://ve.linkedin.com/in/humberto-chacón-romero-2091636a",
     portfolio: "https://humbertochacon.netlify.app"
   },
   settings: {

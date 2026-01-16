@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cvData } from '../data/cvData';
+import { exportToPDF } from '../utils/pdfExport';
 
 const Header = ({ darkMode, setDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +15,11 @@ const Header = ({ darkMode, setDarkMode }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleExportPDF = (e) => {
+    e.preventDefault();
+    exportToPDF(personalInfo.name.replace(/\s+/g, '_'));
+  };
+
   const navLinks = [
     { name: '01. SOBRE MÍ', href: '#about' },
     { name: '02. EXPERIENCIA', href: '#experience' },
@@ -24,49 +30,61 @@ const Header = ({ darkMode, setDarkMode }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${scrolled ? 'bg-white/80 dark:bg-black/80 backdrop-blur-md py-4 border-b border-black/5 dark:border-white/5' : 'bg-transparent py-10'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 no-print ${scrolled ? 'bg-white dark:bg-[#050505] shadow-2xl py-4 border-b border-primary/20' : 'bg-transparent py-10'
         }`}
     >
       <nav className="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 flex justify-between items-center text-black dark:text-white">
         {/* Minimal Logo */}
         <motion.a
           href="#"
-          className="text-lg font-display font-bold tracking-tighter"
-          whileHover={{ scale: 1.05 }}
+          className="text-2xl font-display font-bold tracking-tighter flex items-center gap-2 group"
+          whileHover={{ scale: 1.02 }}
         >
-          {personalInfo.initials}<span className="text-black/20 dark:text-white/20">.</span>
+          <span className="text-primary">{personalInfo.initials}</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-primary opacity-50 group-hover:opacity-100 transition-opacity" />
         </motion.a>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-12">
-          <div className="flex space-x-10">
+        <div className="hidden lg:flex items-center space-x-16">
+          <div className="flex space-x-12">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[10px] font-mono tracking-widest text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white transition-colors duration-500 uppercase"
+                className="text-[11px] font-mono tracking-[0.25em] text-black/60 dark:text-white/50 hover:text-primary dark:hover:text-primary transition-all duration-300 uppercase font-black"
               >
                 {link.name}
               </a>
             ))}
           </div>
 
-          <div className="h-4 w-px bg-black/10 dark:bg-white/10" />
+          <div className="h-6 w-px bg-black/10 dark:bg-white/10" />
 
           {/* Theme Toggle & CTA */}
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-10">
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="text-black/30 dark:text-white/30 hover:text-black dark:hover:text-white transition-colors"
+              className="relative p-2.5 rounded-full hover:bg-primary/10 transition-colors text-black/60 dark:text-white/60 hover:text-primary dark:hover:text-primary flex items-center justify-center overflow-hidden w-11 h-11 border border-primary/5"
               aria-label="Toggle theme"
             >
-              {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={darkMode ? 'sun' : 'moon'}
+                  initial={{ y: 20, opacity: 0, rotate: 45 }}
+                  animate={{ y: 0, opacity: 1, rotate: 0 }}
+                  exit={{ y: -20, opacity: 0, rotate: -45 }}
+                  transition={{ duration: 0.3, ease: "anticipate" }}
+                >
+                  {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                </motion.div>
+              </AnimatePresence>
             </button>
             <a
-              href="/cv-humberto-chacon.pdf"
-              className="text-[10px] font-bold tracking-[0.2em] border-b border-black dark:border-white pb-1 flex items-center group"
+              href="#"
+              onClick={handleExportPDF}
+              className="text-[11px] font-black tracking-[0.2em] px-8 py-3.5 bg-primary text-white hover:bg-primary-dark transition-all rounded-sm flex items-center group shadow-xl shadow-primary/30"
             >
-              PDF <ArrowUpRight className="ml-2 w-3 h-3 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              RESUMEN PDF <ArrowUpRight className="ml-3 w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </a>
           </div>
         </div>
@@ -75,15 +93,15 @@ const Header = ({ darkMode, setDarkMode }) => {
         <div className="lg:hidden flex items-center space-x-6">
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="text-black/30 dark:text-white/30"
+            className="p-2.5 rounded-full bg-primary/5 text-primary"
           >
-            {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
           </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-black dark:text-white"
+            className="p-2.5 text-primary border border-primary/20 rounded-sm"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
       </nav>
@@ -95,35 +113,52 @@ const Header = ({ darkMode, setDarkMode }) => {
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 z-40 bg-white dark:bg-black p-8 lg:hidden flex flex-col justify-center items-center space-y-12"
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-40 bg-white dark:bg-[#0A0A0B] p-8 lg:hidden flex flex-col justify-center items-start space-y-12"
           >
-            <button className="absolute top-8 right-8 text-black dark:text-white" onClick={() => setIsOpen(false)}>
-              <X className="w-8 h-8" />
-            </button>
-            <nav className="flex flex-col items-center space-y-10">
+            <div className="absolute top-8 right-8 flex items-center gap-6">
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                className="p-3 rounded-full bg-primary/5 text-primary"
+              >
+                {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+              </button>
+              <button className="p-3 text-primary border border-primary/20 rounded-sm" onClick={() => setIsOpen(false)}>
+                <X className="w-8 h-8" />
+              </button>
+            </div>
+
+            <nav className="flex flex-col items-start space-y-10 w-full pl-4">
+              <span className="text-[10px] font-mono tracking-[0.5em] text-primary/40 uppercase mb-4">NAVEGACIÓN</span>
               {navLinks.map((link, idx) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-4xl font-display font-medium tracking-tighter"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
+                  className="text-6xl sm:text-7xl font-display font-medium tracking-tight hover:text-primary transition-all group flex items-baseline gap-4"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.1 + 0.3 }}
                 >
+                  <span className="text-xl font-mono text-primary/20 group-hover:text-primary transition-colors">0{idx + 1}</span>
                   {link.name.split('. ')[1]}
                 </motion.a>
               ))}
               <motion.a
-                href="/cv-humberto-chacon.pdf"
-                className="text-[10px] font-bold tracking-[0.3em] uppercase border-b border-black dark:border-white pb-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
+                href="#"
+                onClick={handleExportPDF}
+                className="mt-12 text-sm font-black tracking-[0.4em] uppercase bg-primary text-white px-12 py-5 rounded-sm shadow-2xl shadow-primary/40 flex items-center gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
               >
-                Descargar CV Completo
+                DESCARGAR PDF <ArrowUpRight className="w-5 h-5" />
               </motion.a>
             </nav>
+
+            <div className="absolute bottom-12 left-12">
+              <span className="text-[10px] font-mono tracking-widest text-black/20 dark:text-white/20 uppercase">Caracas, Venezuela — {new Date().getFullYear()}</span>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
