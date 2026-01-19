@@ -19,7 +19,7 @@ export const cvData = {
     {
       id: 1,
       title: "Líder de Automatización / Desarrollador Senior Full Stack",
-      company: "Amagi",
+      company: "Amagi Group",
       period: "12/2024 - Presente",
       location: "Remoto / Caracas",
       description: "Liderazgo técnico en la automatización de pruebas para el Core Banking de Banplus e implementación de sistemas de monitoreo y auditoría.",

@@ -90,7 +90,7 @@ const Hero = () => {
           <div className="flex flex-col space-y-8 md:space-y-12">
             <motion.h1
               variants={itemVariants}
-              className="text-5xl sm:text-7xl lg:text-9xl font-display font-medium leading-[1] md:leading-[0.9] tracking-tighter text-black dark:text-white"
+              className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display font-medium leading-[1] md:leading-[0.9] tracking-tighter text-black dark:text-white"
             >
               <span className="text-primary block mb-2 md:mb-4">{personalInfo.name.split(' ')[0]}</span>
               <span className="text-primary/20 dark:text-primary/40 text-outline leading-none break-words">
@@ -100,10 +100,10 @@ const Hero = () => {
 
             <motion.div
               variants={itemVariants}
-              className="mt-4 md:mt-8 max-w-3xl relative"
+              className="mt-2 md:mt-8 max-w-3xl relative"
             >
               <div className="absolute -left-12 top-2 w-8 h-px bg-primary/30 hidden lg:block" />
-              <p className="text-lg md:text-xl lg:text-2xl font-display font-light text-black/80 dark:text-white/70 leading-relaxed">
+              <p className="text-base md:text-xl lg:text-2xl font-display font-light text-black/80 dark:text-white/70 leading-relaxed">
                 {personalInfo.heroDescription}
               </p>
             </motion.div>
@@ -112,15 +112,15 @@ const Hero = () => {
           {/* Core Focus / Tech Detail - More Structured */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col md:flex-row md:items-center justify-between gap-10 md:gap-16 pt-12 md:pt-20 border-t-2 border-primary/10"
+            className="flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-16 pt-8 md:pt-20 border-t-2 border-primary/10"
           >
-            <div className="flex items-center gap-6 md:gap-8">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-primary/20 flex items-center justify-center shrink-0">
+            <div className="flex items-center gap-4 md:gap-8">
+              <div className="w-10 h-10 md:w-16 md:h-16 rounded-full border border-primary/20 flex items-center justify-center shrink-0">
                 <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-primary" />
               </div>
-              <div className="space-y-1.5 md:space-y-3">
-                <span className="text-[8px] md:text-[10px] font-mono tracking-[0.3em] text-primary uppercase font-black">Especialización Principal</span>
-                <h2 className="text-2xl md:text-3xl lg:text-3xl font-display font-medium tracking-tight text-black dark:text-white leading-tight">
+              <div className="space-y-1 md:space-y-3">
+                <span className="text-[8px] md:text-[10px] font-mono tracking-[0.2em] md:tracking-[0.3em] text-primary uppercase font-black">Especialización Principal</span>
+                <h2 className="text-xl md:text-3xl lg:text-3xl font-display font-medium tracking-tight text-black dark:text-white leading-tight">
                   {personalInfo.specialty.split('|')[0]}
                 </h2>
               </div>
@@ -128,8 +128,8 @@ const Hero = () => {
 
             <div className="flex items-baseline space-x-3 md:space-x-4">
               <div className="flex flex-col items-start md:items-end">
-                <span className="text-[8px] md:text-[10px] font-mono tracking-[0.3em] text-primary uppercase font-black">Trayectoria</span>
-                <span className="text-5xl md:text-7xl lg:text-7xl font-display font-medium tracking-tighter text-black dark:text-white leading-none">
+                <span className="text-[8px] md:text-[10px] font-mono tracking-[0.2em] md:tracking-[0.3em] text-primary uppercase font-black">Trayectoria</span>
+                <span className="text-4xl md:text-7xl lg:text-7xl font-display font-medium tracking-tighter text-black dark:text-white leading-none">
                   {personalInfo.experienceYears}<span className="text-primary">+</span>
                 </span>
                 <span className="text-[8px] md:text-[10px] font-mono tracking-widest text-primary/60 uppercase font-bold">Años de Maestría</span>

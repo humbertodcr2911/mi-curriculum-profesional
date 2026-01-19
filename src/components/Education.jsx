@@ -16,7 +16,7 @@ const Education = () => {
             <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-primary uppercase font-black">05 / CREDENCIALES</span>
             <div className="h-px w-16 md:w-24 bg-primary/20" />
           </div>
-          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-8xl font-display font-medium text-black dark:text-white tracking-tight leading-none break-words">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-medium text-black dark:text-white tracking-tight leading-tight break-words">
             Formación <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic">& Honores</span>
           </h2>
         </div>
@@ -51,13 +51,13 @@ const Education = () => {
                     <span className="text-[8px] md:text-[10px] font-mono text-primary/10 group-hover:text-primary transition-colors uppercase font-black border border-primary/5 px-3 md:px-4 py-1 rounded-full whitespace-nowrap">INGENIERÍA</span>
                   </div>
                   <div className="space-y-4 md:space-y-6">
-                    <h3 className="text-3xl md:text-5xl lg:text-5xl font-display font-medium text-black dark:text-white tracking-tight group-hover:text-primary group-hover:translate-x-2 md:group-hover:translate-x-6 transition-all duration-700 leading-tight">
+                    <h3 className="text-2xl md:text-4xl lg:text-5xl font-display font-medium text-black dark:text-white tracking-tight group-hover:text-primary group-hover:translate-x-2 md:group-hover:translate-x-6 transition-all duration-700 leading-tight">
                       {edu.degree}
                     </h3>
-                    <p className="text-xl md:text-2xl lg:text-2xl font-display italic text-primary/40 group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform duration-500">
+                    <p className="text-lg md:text-xl lg:text-2xl font-display italic text-primary/40 group-hover:translate-x-1 md:group-hover:translate-x-2 transition-transform duration-500">
                       {edu.institution}
                     </p>
-                    <p className="text-lg md:text-xl lg:text-xl font-display font-light text-black/70 dark:text-white/60 leading-relaxed max-w-2xl capitalize-first">
+                    <p className="text-base md:text-xl lg:text-xl font-display font-light text-black/70 dark:text-white/60 leading-relaxed max-w-2xl capitalize-first">
                       {edu.description}
                     </p>
                   </div>
@@ -103,7 +103,7 @@ const Education = () => {
             >
               <Quote className="absolute -top-4 -right-4 w-20 h-20 md:w-32 md:h-32 text-primary/[0.05] group-hover:text-primary/10 transition-colors rotate-12" />
               <div className="absolute top-0 left-0 w-1.5 md:w-2 h-full bg-primary/20 group-hover:bg-primary transition-colors" />
-              <p className="text-2xl md:text-3xl lg:text-3xl font-display font-light text-black/60 dark:text-white/50 leading-tight italic relative z-10 group-hover:text-black dark:group-hover:text-white transition-all duration-700">
+              <p className="text-xl md:text-2xl lg:text-3xl font-display font-light text-black/60 dark:text-white/50 leading-tight italic relative z-10 group-hover:text-black dark:group-hover:text-white transition-all duration-700">
                 "{personalInfo.philosophy || 'Comprometido con la maestría técnica profunda en un estado de evolución permanente.'}"
               </p>
             </motion.div>

@@ -39,7 +39,7 @@ const Contact = () => {
             <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-primary uppercase font-black">06 / CONEXIÓN</span>
             <div className="h-px w-16 md:w-24 bg-primary/20" />
           </div>
-          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-medium text-black dark:text-white tracking-tight leading-none break-words">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-display font-medium text-black dark:text-white tracking-tight leading-tight break-words">
             Inicia una <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic">Conversación</span>
           </h2>
         </div>
@@ -56,7 +56,7 @@ const Contact = () => {
                   </div>
                   <span className="text-[10px] md:text-xs font-mono tracking-widest text-primary uppercase font-black">Canal Directo</span>
                 </div>
-                <p className="text-2xl md:text-2xl font-display italic text-black dark:text-white hover:text-primary transition-colors cursor-pointer break-all">
+                <p className="text-xl md:text-2xl font-display italic text-black dark:text-white hover:text-primary transition-colors cursor-pointer break-all">
                   {contact.email}
                 </p>
               </div>
@@ -67,11 +67,11 @@ const Contact = () => {
                   <div className="h-px grow bg-primary/10" />
                 </div>
                 <div className="flex flex-col space-y-4 md:space-y-6">
-                  <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-2xl md:text-2xl font-display text-black/70 dark:text-white/60 hover:text-primary transition-all flex items-center gap-4 md:gap-6 group">
+                  <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-xl md:text-2xl font-display text-black/70 dark:text-white/60 hover:text-primary transition-all flex items-center gap-4 md:gap-6 group">
                     <Linkedin className="w-6 h-6 md:w-8 md:h-8 text-primary/20 group-hover:text-primary group-hover:scale-110 transition-all shrink-0" />
                     LinkedIn <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                   </a>
-                  <a href={contact.github} target="_blank" rel="noopener noreferrer" className="text-2xl md:text-2xl font-display text-black/70 dark:text-white/60 hover:text-primary transition-all flex items-center gap-4 md:gap-6 group">
+                  <a href={contact.github} target="_blank" rel="noopener noreferrer" className="text-xl md:text-2xl font-display text-black/70 dark:text-white/60 hover:text-primary transition-all flex items-center gap-4 md:gap-6 group">
                     <Github className="w-6 h-6 md:w-8 md:h-8 text-primary/20 group-hover:text-primary group-hover:scale-110 transition-all shrink-0" />
                     GitHub <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                   </a>
@@ -85,7 +85,7 @@ const Contact = () => {
                 <span className="text-[10px] md:text-xs font-mono tracking-widest text-primary uppercase font-black">Ubicación Actual</span>
               </div>
               <div>
-                <p className="text-2xl md:text-3xl font-display font-light text-black/70 dark:text-white/60">{contact.location}</p>
+                <p className="text-xl md:text-3xl font-display font-light text-black/70 dark:text-white/60">{contact.location}</p>
                 <div className="mt-4 md:mt-6 inline-flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 rounded-full bg-primary/5 border border-primary/10">
                   <div className="w-1.5 md:w-2 h-1.5 md:h-2 rounded-full bg-primary animate-pulse" />
                   <p className="text-[8px] md:text-[10px] font-mono text-primary uppercase tracking-[0.1em] md:tracking-[0.2em] font-black">Disponibilidad Global</p>
@@ -107,7 +107,7 @@ const Contact = () => {
                   <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                     <Send className="w-6 h-6 md:w-10 md:h-10 text-primary" />
                   </div>
-                  <h3 className="text-4xl md:text-6xl font-display font-medium text-primary tracking-tighter leading-tight">
+                  <h3 className="text-3xl md:text-6xl font-display font-medium text-primary tracking-tighter leading-tight">
                     Mensaje Recibido.
                   </h3>
                   <p className="text-xl md:text-2xl font-display font-light text-black/70 dark:text-white/60 leading-relaxed max-w-xl">
@@ -138,7 +138,7 @@ const Contact = () => {
                         onChange={handleChange}
                         required
                         placeholder="john@example.com"
-                        className="w-full bg-transparent border-b-2 border-primary/10 py-4 md:py-6 font-display font-light text-2xl md:text-2xl text-black dark:text-white outline-none focus:border-primary transition-all focus:bg-primary/[0.01] placeholder:text-black/10 dark:placeholder:text-white/5"
+                        className="w-full bg-transparent border-b-2 border-primary/10 py-4 md:py-6 font-display font-light text-lg md:text-2xl text-black dark:text-white outline-none focus:border-primary transition-all focus:bg-primary/[0.01] placeholder:text-black/10 dark:placeholder:text-white/5"
                       />
                     </div>
                   </div>
@@ -152,7 +152,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       placeholder="Propuesta de Colaboración"
-                      className="w-full bg-transparent border-b-2 border-primary/10 py-4 md:py-6 font-display font-light text-2xl md:text-2xl text-black dark:text-white outline-none focus:border-primary transition-all focus:bg-primary/[0.01] placeholder:text-black/10 dark:placeholder:text-white/5"
+                      className="w-full bg-transparent border-b-2 border-primary/10 py-4 md:py-6 font-display font-light text-lg md:text-2xl text-black dark:text-white outline-none focus:border-primary transition-all focus:bg-primary/[0.01] placeholder:text-black/10 dark:placeholder:text-white/5"
                     />
                   </div>
 
@@ -165,7 +165,7 @@ const Contact = () => {
                       required
                       placeholder="Cuéntame sobre tu proyecto o idea..."
                       rows="4"
-                      className="w-full bg-transparent border-b-2 border-primary/10 py-4 md:py-6 font-display font-light text-2xl md:text-2xl text-black dark:text-white outline-none focus:border-primary transition-all resize-none focus:bg-primary/[0.01] placeholder:text-black/10 dark:placeholder:text-white/5"
+                      className="w-full bg-transparent border-b-2 border-primary/10 py-4 md:py-6 font-display font-light text-lg md:text-2xl text-black dark:text-white outline-none focus:border-primary transition-all resize-none focus:bg-primary/[0.01] placeholder:text-black/10 dark:placeholder:text-white/5"
 
                     ></textarea>
                   </div>

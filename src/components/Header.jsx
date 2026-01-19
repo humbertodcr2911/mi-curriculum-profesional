@@ -128,31 +128,31 @@ const Header = ({ darkMode, setDarkMode }) => {
               </button>
             </div>
 
-            <nav className="flex flex-col items-start space-y-10 w-full pl-4">
-              <span className="text-[10px] font-mono tracking-[0.5em] text-primary/40 uppercase mb-4">NAVEGACIÓN</span>
+            <nav className="flex flex-col items-start space-y-6 sm:space-y-10 w-full pl-4 overflow-y-auto max-h-[70vh]">
+              <span className="text-[10px] font-mono tracking-[0.5em] text-primary/40 uppercase mb-2">NAVEGACIÓN</span>
               {navLinks.map((link, idx) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-6xl sm:text-7xl font-display font-medium tracking-tight hover:text-primary transition-all group flex items-baseline gap-4"
+                  className="text-4xl sm:text-6xl font-display font-medium tracking-tight hover:text-primary transition-all group flex items-baseline gap-4"
                   initial={{ opacity: 0, x: 50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.1 + 0.3 }}
                 >
-                  <span className="text-xl font-mono text-primary/20 group-hover:text-primary transition-colors">0{idx + 1}</span>
+                  <span className="text-lg font-mono text-primary/20 group-hover:text-primary transition-colors">0{idx + 1}</span>
                   {link.name.split('. ')[1]}
                 </motion.a>
               ))}
               <motion.a
                 href="#"
                 onClick={handleExportPDF}
-                className="mt-12 text-sm font-black tracking-[0.4em] uppercase bg-primary text-white px-12 py-5 rounded-sm shadow-2xl shadow-primary/40 flex items-center gap-4"
+                className="mt-8 text-[11px] font-black tracking-[0.4em] uppercase bg-primary text-white px-8 py-4 rounded-sm shadow-2xl shadow-primary/40 flex items-center gap-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 }}
               >
-                DESCARGAR PDF <ArrowUpRight className="w-5 h-5" />
+                DESCARGAR PDF <ArrowUpRight className="w-4 h-4" />
               </motion.a>
             </nav>
 

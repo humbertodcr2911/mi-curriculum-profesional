@@ -22,7 +22,7 @@ const Skills = () => {
             <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-primary uppercase font-black">03 / CAPACIDADES</span>
             <div className="h-px w-12 md:w-24 bg-primary/20" />
           </div>
-          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-medium text-black dark:text-white tracking-tight leading-none break-words">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-display font-medium text-black dark:text-white tracking-tight leading-tight break-words">
             Ecosistema <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic">Tecnológico</span>
           </h2>
         </div>
@@ -83,7 +83,7 @@ const Skills = () => {
                   <Layers className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-primary uppercase font-black">04 / DIMENSIÓN HUMANA</span>
                 </div>
-                <h3 className="text-5xl md:text-6xl font-display font-medium text-black dark:text-white tracking-tighter leading-tight">
+                <h3 className="text-3xl md:text-5xl lg:text-6xl font-display font-medium text-black dark:text-white tracking-tighter leading-tight">
                   Capacidades <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic font-light leading-none">Transversales</span>
                 </h3>
               </div>
