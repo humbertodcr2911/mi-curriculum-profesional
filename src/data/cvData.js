@@ -52,13 +52,13 @@ export const cvData = {
       location: "Caracas, Venezuela",
       description: "Implantación de sistemas masivos, soporte técnico L3 y desarrollo de procesos estadísticos complejos.",
       achievements: [
-        "Liderazgo en la migración del proyecto 'Proyecciones' desde arquitectura .NET (C#) a Java (Spring Boot)",
-        "Diseño y desarrollo del frontend del sistema de Proyecciones utilizando Play Framework",
+        "Liderazgo en la migración de 'Proyecciones' desde .NET a Java (Spring Boot): software para maximizar rentabilidad de efectivo mediante análisis estadístico y probabilístico",
+        "Diseño del motor de estimación de demanda (Depósitos-Retiros) para planificación de flujo de efectivo y gestión de remesas bancarias",
+        "Desarrollo integral del frontend del sistema de Proyecciones utilizando Play Framework",
         "Gestión experta de bases de datos Oracle y SQL Server (SP, Triggers, Vistas)",
         "Desarrollo .NET (C# / VB) para procesos matemáticos e indicadores de efectividad",
         "Implementación de calibración automática usando lenguaje R para análisis estadístico",
-        "Desarrollo de Web Services SOAP (ASMX) y manejo de Crystal Reports",
-        "Mantenimiento de interfaces en Java y control de versiones con SVN"
+        "Desarrollo de Web Services SOAP (ASMX) y manejo de Crystal Reports"
       ]
     },
     {
@@ -85,6 +85,7 @@ export const cvData = {
       location: "Caracas, Venezuela",
       description: "Desarrollo de servicios base y lógica de negocio en el ecosistema Microsoft.",
       achievements: [
+        "Desarrollo y soporte técnico para el portal institucional del INCES (Venezuela)",
         "Desarrollo de servicios web SOAP y REST utilizando C# y ASP.NET",
         "Implementación de lógica de negocio y capas de acceso a datos",
         "Creación de pantallas administrativas bajo estándares corporativos"
