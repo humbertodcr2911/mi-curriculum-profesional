@@ -52,11 +52,12 @@ export const cvData = {
       location: "Caracas, Venezuela",
       description: "Implantación de sistemas masivos, soporte técnico L3 y desarrollo de procesos estadísticos complejos.",
       achievements: [
+        "Liderazgo en la migración del proyecto 'Proyecciones' desde arquitectura .NET (C#) a Java (Spring Boot)",
+        "Diseño y desarrollo del frontend del sistema de Proyecciones utilizando Play Framework",
         "Gestión experta de bases de datos Oracle y SQL Server (SP, Triggers, Vistas)",
         "Desarrollo .NET (C# / VB) para procesos matemáticos e indicadores de efectividad",
         "Implementación de calibración automática usando lenguaje R para análisis estadístico",
         "Desarrollo de Web Services SOAP (ASMX) y manejo de Crystal Reports",
-        "Administración de servidores Windows Server 2012 R2, Tomcat y WebSphere",
         "Mantenimiento de interfaces en Java y control de versiones con SVN"
       ]
     },
@@ -64,7 +65,7 @@ export const cvData = {
       id: 4,
       title: "Desarrollador Junior Full Stack",
       company: "Acorde Internacional 9S",
-      period: "2018 - 2023",
+      period: "2018 - 2018",
       location: "Caracas, Venezuela",
       description: "Desarrollo de aplicaciones web modernas bajo metodologías ágiles y gestión de infraestructura cloud.",
       achievements: [
@@ -114,7 +115,7 @@ export const cvData = {
       { name: 'Bootstrap / Responsive Design', level: 95 }
     ],
     backend: [
-      { name: 'Arquitectura Java (Spring Boot)', level: 95 },
+      { name: 'Arquitectura Java (Spring Boot / Play)', level: 95 },
       { name: 'Python (Selenium / Automatización)', level: 90 },
       { name: 'C# / .NET / Web API', level: 90 },
       { name: 'Diseño de APIs REST y SOAP', level: 95 },
