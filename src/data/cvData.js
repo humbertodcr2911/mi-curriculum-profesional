@@ -34,7 +34,7 @@ export const cvData = {
       id: 2,
       title: "Desarrollador Senior Full Stack",
       company: "NDC Solutions",
-      period: "2023 - 2024",
+      period: "2023 - 2025",
       location: "Caracas, Venezuela",
       description: "Optimización de servicios críticos para el Banco de Venezuela y desarrollo de sistemas médicos integrales.",
       achievements: [
