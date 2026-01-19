@@ -2,10 +2,10 @@ export const cvData = {
   personalInfo: {
     name: "Humberto Chacón",
     birthDate: "29-11-1992",
-    specialty: "Ingeniero de Sistemas | Especialista en Automatización y Backend",
-    experienceYears: "8",
-    availability: "Entrega de soluciones de alta criticidad",
-    heroDescription: "Ingeniero de Sistemas con más de 8 años de trayectoria profesional, proyectando soluciones técnicas robustas y escalables. Especializado en arquitectura de sistemas, automatización bancaria y desarrollo full-stack de alto impacto.",
+    specialty: "Ingeniero de Sistemas | Senior Full Stack Developer | Especialista en Despliegue y Soporte",
+    experienceYears: "8+",
+    availability: "Entrega de soluciones críticas y arquitectura integral",
+    heroDescription: "Ingeniero de Sistemas con más de 8 años de trayectoria, experto en el ciclo de vida completo de software de alta criticidad. Especializado en arquitectura Full Stack, automatización bancaria y despliegue en entornos productivos. Poseo amplia experiencia en la implementación, soporte L3 y mantenimiento evolutivo de sistemas masivos, así como en la gestión avanzada de servidores de aplicaciones y bases de datos corporativas.",
     aboutHistory: [
       "Graduado de la Universidad Nacional Experimental Politécnica (UNEXPO), mi carrera se ha forjado en la intersección de la ingeniería de sistemas y el desarrollo de software crítico.",
       "Con una sólida base en arquitecturas Java, Core Banking y ecosistemas .NET, actualmente lidero la automatización en Amagi, integrando monitoreo de auditoría en MongoDB y visualización en Grafana para asegurar la excelencia operativa.",
@@ -124,11 +124,19 @@ export const cvData = {
       { name: 'Lenguaje R / Procesos Estadísticos', level: 85 }
     ],
     tools: [
-      { name: 'Git / SVN / GitHub', level: 95 },
-      { name: 'Docker / Linux / AWS', level: 85 },
-      { name: 'Grafana / Dashboarding', level: 90 },
-      { name: 'Windows Server / WebSphere / Tomcat', level: 85 },
-      { name: 'Postman / Crystal Reports / Eclipse', level: 95 }
+      { name: 'Git / GitHub', level: 95 },
+      { name: 'Docker / Kubernetes', level: 80 },
+      { name: 'Grafana / Prometheus', level: 90 },
+      { name: 'Postman / Swagger', level: 95 },
+      { name: 'Crystal Reports', level: 90 }
+    ],
+    infrastructure: [
+      { name: 'Weblogic / WebSphere', level: 85 },
+      { name: 'Windows Server / Linux', level: 90 },
+      { name: 'Tomcat / IIS', level: 85 },
+      { name: 'AWS Cloud / Azure', level: 80 },
+      { name: 'Mantenimiento Evolutivo', level: 95 },
+      { name: 'Soporte L3 / Producción', level: 95 }
     ],
     soft: [
       'Liderazgo de Equipos Técnicos',

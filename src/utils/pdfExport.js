@@ -31,7 +31,7 @@ export const exportToPDF = (userName = 'Humberto_Chacon') => {
             format: 'a4',
             orientation: 'portrait'
         },
-        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+        pagebreak: { mode: ['css', 'legacy'] }
     };
 
     try {
