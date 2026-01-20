@@ -56,9 +56,13 @@ const Contact = () => {
                   </div>
                   <span className="text-[10px] md:text-xs font-mono tracking-widest text-primary uppercase font-black">Canal Directo</span>
                 </div>
-                <p className="text-xl md:text-2xl font-display italic text-black dark:text-white hover:text-primary transition-colors cursor-pointer break-all">
-                  {contact.email}
-                </p>
+                <div className="flex flex-col space-y-2">
+                  {contact.emails.map((email, i) => (
+                    <p key={i} className="text-xl md:text-2xl font-display italic text-black dark:text-white hover:text-primary transition-colors cursor-pointer break-all">
+                      {email}
+                    </p>
+                  ))}
+                </div>
               </div>
 
               <div className="space-y-8 md:space-y-10">

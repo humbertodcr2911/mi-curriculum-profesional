@@ -25,8 +25,7 @@ const Footer = () => {
         <div className="grid lg:grid-cols-12 gap-12 md:gap-16 mb-24 md:mb-48 items-end">
           {/* Main Contacts - Horizontal & Bold */}
           <div className="lg:col-span-8 flex flex-wrap gap-8 md:gap-16 lg:gap-24">
-            <motion.a
-              href={`mailto:${contact.email}`}
+            <motion.div
               className="group flex flex-col space-y-4 md:space-y-6"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -36,10 +35,18 @@ const Footer = () => {
                 <Mail className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary/40 group-hover:text-primary transition-colors" />
                 <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-primary/40 uppercase font-black">Email</span>
               </div>
-              <span className="text-2xl md:text-4xl lg:text-5xl font-display font-medium border-b-2 border-primary/10 group-hover:border-primary group-hover:text-primary transition-all pb-1 md:pb-2 break-all">
-                {contact.email}
-              </span>
-            </motion.a>
+              <div className="flex flex-col space-y-2">
+                {contact.emails.map((email, i) => (
+                  <a
+                    key={i}
+                    href={`mailto:${email}`}
+                    className="text-2xl md:text-3xl lg:text-4xl font-display font-medium border-b-2 border-primary/10 group-hover:border-primary group-hover:text-primary transition-all pb-1 md:pb-2 break-all"
+                  >
+                    {email}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
 
             <motion.a
               href={contact.linkedin}

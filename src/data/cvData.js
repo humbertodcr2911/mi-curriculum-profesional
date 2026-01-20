@@ -24,10 +24,11 @@ export const cvData = {
       location: "Remoto / Caracas",
       description: "Liderazgo técnico en la automatización de pruebas para el Core Banking de Banplus e implementación de sistemas de monitoreo y auditoría.",
       achievements: [
-        "Arquitectura de suite de pruebas con Selenium y Python para flujos críticos y OTP",
-        "Configuración de tableros en Grafana para monitoreo de ejecuciones en tiempo real",
-        "Análisis y consulta de auditorías en MongoDB para validación de integridad",
-        "Orquestación híbrida Java/Python para el backend de automatización"
+        "Diseño y desarrollo de Dashboard premium en React para el monitoreo y gestión de pruebas automatizadas en tiempo real",
+        "Arquitectura de suite de pruebas con Selenium y Python para flujos críticos y procesos OTP bancarios",
+        "Configuración de tableros en Grafana para visualización de métricas de ejecución y salud de infraestructura",
+        "Análisis y validación de integridad mediante consultas avanzadas en MongoDB",
+        "Orquestación técnica Java/Python para el ecosistema de automatización corporativo"
       ]
     },
     {
@@ -153,7 +154,6 @@ export const cvData = {
       title: "B-TEST: Dashboard de Automatización Bancaria",
       description: "Plataforma premium para el monitoreo y gestión de pruebas Selenium en Core Banking. Cuenta con integración de WebSockets y auditorías en vivo.",
       technologies: ["React", "Spring Boot", "Python", "MongoDB", "Grafana"],
-      github: "https://github.com/humbertodcr2911/mi-curriculum-profesional",
       featured: true
     },
     {
@@ -165,14 +165,28 @@ export const cvData = {
     },
     {
       id: 3,
-      title: "Gestión Médica y Odontológica",
-      description: "Sistema integral para la administración de historias clínicas, inventarios y agendas, con seguridad integrada a nivel corporativo.",
-      technologies: ["Angular", "Spring Boot", "Oracle", "LDAP"],
-      featured: false
+      title: "Suite COE Bancario (Bitconsulting)",
+      description: "Liderazgo técnico en la suite corporativa: COE Central, COE Agencia, COE Gerencia, COE Administración de Perfiles, COE Monitor de Interfaces y COE Monitor de Proyecciones. Gestión integral de perfiles y monitoreo transaccional.",
+      technologies: ["Java", "Spring Boot", ".NET", "Oracle", "Play Framework"],
+      featured: true
+    },
+    {
+      id: 4,
+      title: "COE Proyecciones (Bitconsulting)",
+      description: "Desarrollo y mantenimiento evolutivo del sistema de Proyecciones. Implementación de algoritmos para maximizar rentabilidad de efectivo mediante análisis estadístico y probabilístico, con calibración en R y motor de estimación de demanda bancaria.",
+      technologies: ["Spring Boot", "Lenguaje R", "C#", "Oracle", "Play"],
+      featured: true
+    },
+    {
+      id: 5,
+      title: "Gestión Médica & Insumos (NDC Solutions)",
+      description: "Desarrollo de módulos integrales: Control de Insumos Médicos, Control de Citas Médicas y Odontológicas, Historial Médico e Historial Odontológico. Sistema diseñado para alta concurrencia y seguridad de datos sensibles.",
+      technologies: ["Angular", "Spring Boot", "Oracle", "Java", "SQL Server"],
+      featured: true
     }
   ],
   contact: {
-    email: "hdavid2911@gmail.com",
+    emails: ["hdavid2911@gmail.com", "david14.14@hotmail.com"],
     phone: "+58 4242247570",
     location: "Caracas, Venezuela",
     github: "https://github.com/humbertodcr2911",

@@ -45,7 +45,7 @@ const Projects = () => {
                 <h3 className="text-2xl md:text-4xl lg:text-5xl font-display font-medium text-black dark:text-white tracking-tight leading-tight group-hover:text-primary group-hover:translate-x-2 md:group-hover:translate-x-6 transition-all duration-700 break-words">
                   {project.title}
                 </h3>
-                <p className="text-lg md:text-xl lg:text-xl font-display font-light text-black/70 dark:text-white/60 leading-relaxed capitalize-first">
+                <p className="text-lg md:text-xl lg:text-xl font-display font-light text-black/70 dark:text-white/60 leading-relaxed">
                   {project.description}
                 </p>
               </div>
@@ -61,23 +61,27 @@ const Projects = () => {
                 ))}
               </div>
 
-              <div className="pt-8 md:pt-12 flex items-center space-x-10 md:space-x-16">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 md:gap-4 text-[10px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.3em] uppercase border-b-2 border-primary/10 hover:border-primary text-primary/60 hover:text-primary transition-all pb-2 md:pb-3"
-                >
-                  <Github className="w-4 h-4 md:w-5 md:h-5" /> SOURCE
-                </a>
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 md:gap-4 text-[10px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.3em] uppercase border-b-2 border-primary/10 hover:border-primary text-primary/60 hover:text-primary transition-all pb-2 md:pb-3"
-                >
-                  <ExternalLink className="w-4 h-4 md:w-5 md:h-5" /> VISTA
-                </a>
+              <div className="pt-8 md:pt-12 flex flex-wrap items-center gap-10 md:gap-16">
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 md:gap-4 text-[10px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.3em] uppercase border-b-2 border-primary/10 hover:border-primary text-primary/60 hover:text-primary transition-all pb-2 md:pb-3"
+                  >
+                    <Github className="w-4 h-4 md:w-5 md:h-5" /> SOURCE
+                  </a>
+                )}
+                {project.demo && (
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 md:gap-4 text-[10px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.3em] uppercase border-b-2 border-primary/10 hover:border-primary text-primary/60 hover:text-primary transition-all pb-2 md:pb-3"
+                  >
+                    <ExternalLink className="w-4 h-4 md:w-5 md:h-5" /> VISTA
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}

@@ -64,6 +64,8 @@ const PDFResume = () => {
                     display: flex;
                     flex-direction: column;
                     gap: 8px;
+                    page-break-inside: avoid;
+                    break-inside: avoid;
                 }
 
                 .section-main {
@@ -82,6 +84,8 @@ const PDFResume = () => {
                     border-bottom: 2px solid #0066FF;
                     padding-bottom: 3px;
                     margin-bottom: 6px;
+                    page-break-after: avoid;
+                    break-after: avoid;
                 }
 
                 .title-main {
@@ -249,41 +253,43 @@ const PDFResume = () => {
                     font-weight: bold;
                 }
 
-                .project-grid {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 10px;
+                .project-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
                 }
 
                 .project-card {
                     background: #ffffff;
-                    padding: 8px;
+                    padding: 10px 14px;
                     border-radius: 6px;
-                    border: 1px solid #e2e8f0;
+                    border-left: 3px solid #0066FF;
+                    background: #fcfdfe;
                 }
 
                 .project-title {
                     font-weight: 700;
-                    font-size: 9pt;
+                    font-size: 9.5pt;
                     color: #0f172a;
-                    margin-bottom: 1px;
+                    margin-bottom: 2px;
                 }
 
                 .project-desc {
-                    font-size: 7.5pt;
+                    font-size: 8.5pt;
                     color: #475569;
                     margin-bottom: 4px;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
+                    text-align: justify;
                 }
 
                 .project-tech {
-                    font-size: 6.5pt;
+                    font-size: 7pt;
                     font-weight: 700;
                     color: #0066FF;
                     text-transform: uppercase;
+                    background: #eef2ff;
+                    padding: 1px 10px;
+                    border-radius: 4px;
+                    display: inline-block;
                 }
 
                 .edu-item {
@@ -349,7 +355,9 @@ const PDFResume = () => {
                         <span className="contact-icon">✉</span>
                         <div className="contact-text">
                             <span className="contact-label">Email</span>
-                            <span className="contact-value">{contact.email}</span>
+                            {contact.emails.map((email, i) => (
+                                <span key={i} className="contact-value" style={{ fontSize: '7.2pt' }}>{email}</span>
+                            ))}
                         </div>
                     </div>
                     <div className="contact-item">
@@ -490,14 +498,14 @@ const PDFResume = () => {
 
                 {/* Projects Section */}
                 <div className="section-main">
-                    <h2 className="title-main">Proyectos Destacados</h2>
-                    <div className="project-grid">
-                        {projects.filter(p => (p.featured || p.id <= 2)).map((proj) => (
+                    <h2 className="title-main">Proyectos de Ingeniería y Software</h2>
+                    <div className="project-list">
+                        {projects.map((proj) => (
                             <div key={proj.id} className="project-card">
                                 <div className="project-title">{proj.title}</div>
                                 <div className="project-desc">{proj.description}</div>
                                 <div className="project-tech">
-                                    {proj.technologies.slice(0, 4).join(' • ')}
+                                    {proj.technologies.join(' • ')}
                                 </div>
                             </div>
                         ))}
