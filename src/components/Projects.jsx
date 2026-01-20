@@ -16,13 +16,13 @@ const Projects = () => {
             <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-primary uppercase font-black">04 / PORTAFOLIO</span>
             <div className="h-px w-16 md:w-24 bg-primary/20" />
           </div>
-          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-medium text-black dark:text-white tracking-tight leading-tight break-words">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-display font-medium text-black dark:text-white tracking-tight leading-tight break-words">
             Proyectos <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic">Curados</span>
           </h2>
         </div>
 
-        {/* Projects Grid - More Robust */}
-        <div className="grid md:grid-cols-2 gap-16 md:gap-24 lg:gap-32">
+        {/* Projects Grid Container - Optimized Spacing */}
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 lg:gap-16 xl:gap-24">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -103,7 +103,7 @@ const Projects = () => {
               <div className="h-[1.5px] md:h-[2px] w-full bg-primary/10 scale-x-100 group-hover:bg-primary transition-colors origin-left" />
             </div>
             <div className="flex items-center justify-between transition-all duration-700">
-              <h3 className="text-2xl sm:text-4xl md:text-7xl lg:text-8xl font-display font-medium text-black dark:text-white tracking-tight leading-tight group-hover:text-primary break-words">
+              <h3 className="text-2xl sm:text-4xl md:text-6xl lg:text-6xl xl:text-8xl font-display font-medium text-black dark:text-white tracking-tight leading-tight group-hover:text-primary break-words">
                 Ver Repositorios <br /> <span className="italic font-light text-primary/40">en GitHub</span>
               </h3>
               <div className="w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full border-2 border-primary/10 flex items-center justify-center group-hover:border-primary group-hover:bg-primary transition-all duration-700 shrink-0 group-hover:translate-x-2 md:group-hover:translate-x-8 group-hover:-translate-y-2 md:group-hover:-translate-y-8">

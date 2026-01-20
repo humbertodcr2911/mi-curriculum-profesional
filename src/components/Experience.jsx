@@ -16,7 +16,7 @@ const Experience = () => {
             <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-primary uppercase font-black">02 / TRAYECTORIA</span>
             <div className="h-px w-16 md:w-24 bg-primary/20" />
           </div>
-          <h2 className="text-4xl sm:text-6xl md:text-8xl lg:text-8xl font-display font-medium text-black dark:text-white tracking-tight leading-loose break-words">
+          <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl font-display font-medium text-black dark:text-white tracking-tight leading-tight break-words">
             Trayectoria <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic">Profesional</span>
           </h2>
         </div>
@@ -32,7 +32,7 @@ const Experience = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <div className="grid lg:grid-cols-12 gap-8 lg:gap-24 items-start">
+              <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 xl:gap-24 items-start">
 
                 {/* Left Column: Period & Organization */}
                 <div className="lg:col-span-4 space-y-4 md:space-y-8">

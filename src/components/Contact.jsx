@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Mail, Linkedin, Github, MapPin, Send } from 'lucide-react';
+import { ArrowUpRight, Mail, Linkedin, Github, MapPin, Send, MessageCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { cvData } from '../data/cvData';
 
 const Contact = () => {
@@ -17,12 +18,32 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    // CONFIGURACIÓN DE EMAILJS
+    // Debes reemplazar estos valores con tus propios IDs de EmailJS
+    const SERVICE_ID = 'service_i447599'; // Reemplazar con tu Service ID
+    const TEMPLATE_ID = 'template_auohak9'; // Reemplazar con tu Template ID
+    const PUBLIC_KEY = 'wKZfaY_A2B53Uoko3'; // Reemplazar con tu Public Key
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      to_name: 'Humberto Chacón',
+    };
+
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
       setIsSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
       setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1500);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      alert('Hubo un error al enviar el mensaje. Por favor, asegúrate de haber configurado tus IDs de EmailJS correctamente o contáctame directamente por mis correos.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -39,12 +60,12 @@ const Contact = () => {
             <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-primary uppercase font-black">06 / CONEXIÓN</span>
             <div className="h-px w-16 md:w-24 bg-primary/20" />
           </div>
-          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-display font-medium text-black dark:text-white tracking-tight leading-tight break-words">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-7xl font-display font-medium text-black dark:text-white tracking-tight leading-tight break-words">
             Inicia una <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic">Conversación</span>
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-16 md:gap-24 lg:gap-40">
+        <div className="grid lg:grid-cols-12 gap-16 md:gap-24 lg:gap-24 xl:gap-32">
 
           {/* Info Sidebar - More Robust */}
           <div className="lg:col-span-4 space-y-12 md:space-y-24">
@@ -79,6 +100,12 @@ const Contact = () => {
                     <Github className="w-6 h-6 md:w-8 md:h-8 text-primary/20 group-hover:text-primary group-hover:scale-110 transition-all shrink-0" />
                     GitHub <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                   </a>
+                  {contact.phone && (
+                    <a href={`https://wa.me/${contact.phone.replace(/[\s+]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-xl md:text-2xl font-display text-black/70 dark:text-white/60 hover:text-primary transition-all flex items-center gap-4 md:gap-6 group">
+                      <MessageCircle className="w-6 h-6 md:w-8 md:h-8 text-primary/20 group-hover:text-primary group-hover:scale-110 transition-all shrink-0" />
+                      WhatsApp <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

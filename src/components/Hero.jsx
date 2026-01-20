@@ -90,7 +90,7 @@ const Hero = () => {
           <div className="flex flex-col space-y-8 md:space-y-12">
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-display font-medium leading-[1] md:leading-[0.9] tracking-tighter text-black dark:text-white"
+              className="text-4xl sm:text-6xl md:text-8xl lg:text-6xl xl:text-8xl font-display font-medium leading-[1] md:leading-[0.9] tracking-tighter text-black dark:text-white"
             >
               <span className="text-primary block mb-2 md:mb-4">{personalInfo.name.split(' ')[0]}</span>
               <span className="text-primary/20 dark:text-primary/40 text-outline leading-none break-words">

@@ -44,14 +44,14 @@ const Header = ({ darkMode, setDarkMode }) => {
           <span className="w-1.5 h-1.5 rounded-full bg-primary opacity-50 group-hover:opacity-100 transition-opacity" />
         </motion.a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-16">
-          <div className="flex space-x-12">
+        {/* Desktop Navigation - Optimized Spacing */}
+        <div className="hidden lg:flex items-center space-x-8 xl:space-x-16">
+          <div className="flex space-x-6 xl:space-x-12">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-[11px] font-mono tracking-[0.25em] text-black/60 dark:text-white/50 hover:text-primary dark:hover:text-primary transition-all duration-300 uppercase font-black"
+                className="text-[10px] xl:text-[11px] font-mono tracking-[0.15em] xl:tracking-[0.25em] text-black/60 dark:text-white/50 hover:text-primary dark:hover:text-primary transition-all duration-300 uppercase font-black"
               >
                 {link.name}
               </a>
@@ -82,9 +82,9 @@ const Header = ({ darkMode, setDarkMode }) => {
             <a
               href="#"
               onClick={handleExportPDF}
-              className="text-[11px] font-black tracking-[0.2em] px-8 py-3.5 bg-primary text-white hover:bg-primary-dark transition-all rounded-sm flex items-center group shadow-xl shadow-primary/30"
+              className="text-[10px] xl:text-[11px] font-black tracking-[0.15em] xl:tracking-[0.2em] px-5 xl:px-8 py-3 xl:py-3.5 bg-primary text-white hover:bg-primary-dark transition-all rounded-sm flex items-center group shadow-xl shadow-primary/30"
             >
-              RESUMEN PDF <ArrowUpRight className="ml-3 w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              RESUMEN PDF <ArrowUpRight className="ml-2 xl:ml-3 w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </a>
           </div>
         </div>

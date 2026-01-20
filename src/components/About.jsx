@@ -1,18 +1,18 @@
 import React from 'react';
-import { ArrowDownRight, MapPin, Calendar, User } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, MapPin, Calendar, User } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cvData } from '../data/cvData';
 
 const About = () => {
-  const { personalInfo } = cvData;
+  const { personalInfo, contact } = cvData;
 
   return (
     <section id="about" className="relative py-24 md:py-40 lg:py-60 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] transition-colors duration-700 overflow-hidden border-t border-primary/10">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16 md:gap-24 lg:gap-32">
+        <div className="grid lg:grid-cols-12 gap-12 md:gap-20 lg:gap-16 xl:gap-24">
 
           {/* Header */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -23,7 +23,7 @@ const About = () => {
                 <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-primary uppercase font-black">01 / PERFIL</span>
                 <div className="h-px w-16 md:w-24 bg-primary/20" />
               </div>
-              <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-8xl font-display font-medium text-black dark:text-white tracking-tight leading-none break-words">
+              <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-5xl xl:text-7xl font-display font-medium text-black dark:text-white tracking-tight leading-none break-words">
                 Sobre <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic">Humberto</span>
               </h2>
 
@@ -54,7 +54,7 @@ const About = () => {
           </div>
 
           {/* Bio Content */}
-          <div className="lg:col-span-7 lg:pt-48">
+          <div className="lg:col-span-8 lg:pt-32 xl:pt-48">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -73,12 +73,27 @@ const About = () => {
                 ))}
               </div>
 
-              {/* Minimal Call to Action */}
-              <div className="pt-8 md:pt-16">
-                <a href="#experience" className="inline-flex items-center gap-4 md:gap-6 text-xs md:text-sm font-black tracking-[0.3em] md:tracking-[0.4em] uppercase bg-primary text-white px-8 md:px-12 py-4 md:py-6 rounded-sm shadow-2xl shadow-primary/30 hover:bg-primary-dark transition-all group">
+              {/* Enhanced Action Buttons */}
+              <div className="pt-8 md:pt-16 flex flex-wrap gap-6 md:gap-10">
+                <a
+                  href="#experience"
+                  className="inline-flex items-center gap-4 md:gap-6 text-[10px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.3em] uppercase bg-primary text-white px-8 md:px-12 py-4 md:py-6 rounded-sm shadow-2xl shadow-primary/30 hover:bg-primary-dark transition-all group"
+                >
                   <span>HISTORIAL PROFESIONAL</span>
                   <ArrowDownRight className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1 group-hover:translate-y-1" />
                 </a>
+
+                {contact.phone && (
+                  <a
+                    href={`https://wa.me/${contact.phone.replace(/[\s+]/g, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-4 md:gap-6 text-[10px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.3em] uppercase border-2 border-primary/20 text-primary px-8 md:px-12 py-4 md:py-6 rounded-sm hover:bg-primary hover:text-white hover:border-primary transition-all group"
+                  >
+                    <span>ENVÍAME UN WHATSAPP</span>
+                    <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </a>
+                )}
               </div>
             </motion.div>
           </div>
