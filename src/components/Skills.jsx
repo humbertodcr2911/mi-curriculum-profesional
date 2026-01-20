@@ -23,7 +23,7 @@ const Skills = () => {
             <div className="h-px w-12 md:w-24 bg-primary/20" />
           </div>
           <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-9xl font-display font-medium text-black dark:text-white tracking-tight leading-tight break-words">
-            Ecosistema <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic">Tecnológico</span>
+            Ecosistema <br /> <span className="text-primary/55 dark:text-primary/50 text-outline italic">Tecnológico</span>
           </h2>
         </div>
 
@@ -52,7 +52,7 @@ const Skills = () => {
                   <div key={skill.name} className="group flex items-center justify-between transition-all duration-500">
                     <div className="flex items-center gap-4">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary/20 group-hover:bg-primary transition-colors" />
-                      <span className="text-xl md:text-xl font-display font-light text-black/80 dark:text-white/70 group-hover:text-primary group-hover:translate-x-2 md:group-hover:translate-x-4 transition-all duration-500">
+                      <span className="text-xl md:text-xl font-display font-light text-black dark:text-white/70 group-hover:text-primary group-hover:translate-x-2 md:group-hover:translate-x-4 transition-all duration-500">
                         {skill.name}
                       </span>
                     </div>
@@ -84,7 +84,7 @@ const Skills = () => {
                   <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-primary uppercase font-black">04 / DIMENSIÓN HUMANA</span>
                 </div>
                 <h3 className="text-3xl md:text-5xl lg:text-6xl font-display font-medium text-black dark:text-white tracking-tighter leading-tight">
-                  Capacidades <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic font-light leading-none">Transversales</span>
+                  Capacidades <br /> <span className="text-primary/55 dark:text-primary/50 text-outline italic font-light leading-none">Transversales</span>
                 </h3>
               </div>
             </div>
@@ -102,7 +102,7 @@ const Skills = () => {
                   >
                     <div className="flex items-center space-x-4 md:space-x-6">
                       <span className="text-xs md:text-sm font-mono text-primary/30 group-hover:text-primary transition-colors font-black">0{idx + 1}</span>
-                      <h4 className="text-xl md:text-xl font-display font-medium text-black/70 dark:text-white/70 group-hover:text-primary uppercase transition-colors tracking-tighter">
+                      <h4 className="text-xl md:text-xl font-display font-medium text-black/90 dark:text-white/70 group-hover:text-primary uppercase transition-colors tracking-tighter">
                         {skill}
                       </h4>
                     </div>

@@ -17,7 +17,7 @@ const Projects = () => {
             <div className="h-px w-16 md:w-24 bg-primary/20" />
           </div>
           <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-display font-medium text-black dark:text-white tracking-tight leading-tight break-words">
-            Proyectos <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic">Curados</span>
+            Proyectos <br /> <span className="text-primary/55 dark:text-primary/50 text-outline italic">Curados</span>
           </h2>
         </div>
 
@@ -33,7 +33,7 @@ const Projects = () => {
               transition={{ delay: index * 0.1 }}
             >
               <div className="flex justify-between items-center">
-                <span className="text-[10px] md:text-xs font-mono text-primary/40 group-hover:text-primary transition-colors font-black uppercase">
+                <span className="text-[10px] md:text-xs font-mono text-primary/80 group-hover:text-primary transition-colors font-black uppercase">
                   PROYECTO // 0{index + 1}
                 </span>
                 <div className="flex gap-4">
@@ -45,7 +45,7 @@ const Projects = () => {
                 <h3 className="text-2xl md:text-4xl lg:text-5xl font-display font-medium text-black dark:text-white tracking-tight leading-tight group-hover:text-primary group-hover:translate-x-2 md:group-hover:translate-x-6 transition-all duration-700 break-words">
                   {project.title}
                 </h3>
-                <p className="text-lg md:text-xl lg:text-xl font-display font-light text-black/70 dark:text-white/60 leading-relaxed">
+                <p className="text-lg md:text-xl lg:text-xl font-display font-light text-black dark:text-white/60 leading-relaxed">
                   {project.description}
                 </p>
               </div>
@@ -54,7 +54,7 @@ const Projects = () => {
                 {project.technologies.map((tech) => (
                   <div key={tech} className="flex items-center gap-2 md:gap-3">
                     <div className="w-1 md:w-1.5 h-1 md:h-1.5 rounded-full bg-primary/20 group-hover:bg-primary transition-colors" />
-                    <span className="text-[10px] md:text-xs font-black tracking-[0.15em] md:tracking-[0.2em] text-primary/40 dark:text-primary/40 uppercase">
+                    <span className="text-[10px] md:text-xs font-black tracking-[0.15em] md:tracking-[0.2em] text-primary/80 dark:text-primary/40 uppercase">
                       {tech}
                     </span>
                   </div>
@@ -67,7 +67,7 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 md:gap-4 text-[10px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.3em] uppercase border-b-2 border-primary/10 hover:border-primary text-primary/60 hover:text-primary transition-all pb-2 md:pb-3"
+                    className="flex items-center gap-3 md:gap-4 text-[10px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.3em] uppercase border-b-2 border-primary/20 hover:border-primary text-primary/90 hover:text-primary transition-all pb-2 md:pb-3"
                   >
                     <Github className="w-4 h-4 md:w-5 md:h-5" /> SOURCE
                   </a>
@@ -77,7 +77,7 @@ const Projects = () => {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 md:gap-4 text-[10px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.3em] uppercase border-b-2 border-primary/10 hover:border-primary text-primary/60 hover:text-primary transition-all pb-2 md:pb-3"
+                    className="flex items-center gap-3 md:gap-4 text-[10px] md:text-xs font-black tracking-[0.2em] md:tracking-[0.3em] uppercase border-b-2 border-primary/20 hover:border-primary text-primary/90 hover:text-primary transition-all pb-2 md:pb-3"
                   >
                     <ExternalLink className="w-4 h-4 md:w-5 md:h-5" /> VISTA
                   </a>
@@ -104,7 +104,7 @@ const Projects = () => {
             </div>
             <div className="flex items-center justify-between transition-all duration-700">
               <h3 className="text-2xl sm:text-4xl md:text-6xl lg:text-6xl xl:text-8xl font-display font-medium text-black dark:text-white tracking-tight leading-tight group-hover:text-primary break-words">
-                Ver Repositorios <br /> <span className="italic font-light text-primary/40">en GitHub</span>
+                Ver Repositorios <br /> <span className="italic font-light text-primary/70">en GitHub</span>
               </h3>
               <div className="w-16 h-16 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full border-2 border-primary/10 flex items-center justify-center group-hover:border-primary group-hover:bg-primary transition-all duration-700 shrink-0 group-hover:translate-x-2 md:group-hover:translate-x-8 group-hover:-translate-y-2 md:group-hover:-translate-y-8">
                 <ArrowUpRight className="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 text-primary group-hover:text-white transition-all " />

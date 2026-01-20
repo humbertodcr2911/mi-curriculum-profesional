@@ -60,8 +60,9 @@ const Contact = () => {
             <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-primary uppercase font-black">06 / CONEXIÓN</span>
             <div className="h-px w-16 md:w-24 bg-primary/20" />
           </div>
-          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-7xl font-display font-medium text-black dark:text-white tracking-tight leading-tight break-words">
-            Inicia una <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic">Conversación</span>
+          <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-display font-medium text-black dark:text-white tracking-tighter leading-[0.9] break-words">
+            Construyamos <br />
+            <span className="text-primary/55 dark:text-primary/40 text-outline italic">el Futuro</span>
           </h2>
         </div>
 
@@ -88,7 +89,7 @@ const Contact = () => {
 
               <div className="space-y-8 md:space-y-10">
                 <div className="flex items-center gap-4 md:gap-6">
-                  <span className="text-[10px] md:text-xs font-mono tracking-widest text-primary uppercase font-black">Redes Profesionales</span>
+                  <span className="text-[10px] md:text-xs font-mono tracking-widest text-primary font-black uppercase">Redes Profesionales</span>
                   <div className="h-px grow bg-primary/10" />
                 </div>
                 <div className="flex flex-col space-y-4 md:space-y-6">

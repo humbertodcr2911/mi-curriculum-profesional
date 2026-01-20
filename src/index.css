@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  --dark-mode: selector;
   --color-primary: #0066FF;
   --color-primary-dark: #0052CC;
   --color-secondary: #1A1A1A;
@@ -64,12 +65,12 @@
   }
 
   .glass-card {
-    @apply border border-black/5 bg-white/40 backdrop-blur-xl p-12 transition-all duration-500 shadow-sm hover:shadow-xl hover:border-primary/20;
+    @apply border border-black/10 bg-white/40 backdrop-blur-xl p-12 transition-all duration-500 shadow-sm hover:shadow-xl hover:border-primary/20;
     @apply dark:border-white/5 dark:bg-white/5;
   }
 
   .editorial-line {
-    @apply h-[1px] bg-black/10 w-full;
+    @apply h-[1px] bg-black/20 w-full;
     @apply dark:bg-white/10;
   }
 }

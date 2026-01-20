@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { cvData } from '../data/cvData';
 import profileImg from '../assets/profile.png';
+import bgNodes from '../assets/bg_nodes.png';
 
 const Hero = () => {
   const { personalInfo } = cvData;
@@ -29,10 +30,28 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[110vh] flex flex-col justify-center bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] transition-colors duration-700 overflow-hidden pt-32 md:pt-40 pb-16 md:pb-20">
+      {/* Cinematic Background Overlay */}
+      <div className="absolute inset-0 z-0">
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.4, 0.3]
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute inset-0 bg-cover bg-center opacity-[0.1] dark:opacity-[0.2] mix-blend-multiply dark:mix-blend-screen"
+          style={{ backgroundImage: `url(${bgNodes})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white dark:via-transparent dark:to-[var(--color-bg-dark)]" />
+      </div>
+
       {/* Background Text Outline - More Layered */}
       <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden">
         <motion.span
-          className="text-[60vw] md:text-[40vw] font-display font-medium text-primary/[0.04] dark:text-primary/[0.06] text-outline whitespace-nowrap"
+          className="text-[60vw] md:text-[40vw] font-display font-medium text-primary/10 dark:text-primary/[0.06] text-outline whitespace-nowrap"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 2, ease: "easeOut" }}
@@ -55,7 +74,7 @@ const Hero = () => {
                 <div className="w-2.5 md:w-3 h-2.5 md:h-3 rounded-full bg-primary" />
                 <div className="absolute inset-0 w-2.5 md:w-3 h-2.5 md:h-3 rounded-full bg-primary animate-ping opacity-40" />
               </div>
-              <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-black/80 dark:text-white/60 uppercase font-black">
+              <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-black dark:text-white/60 uppercase font-black">
                 {personalInfo.availability}
               </span>
             </motion.div>
@@ -93,7 +112,7 @@ const Hero = () => {
               className="text-4xl sm:text-6xl md:text-8xl lg:text-6xl xl:text-8xl font-display font-medium leading-[1] md:leading-[0.9] tracking-tighter text-black dark:text-white"
             >
               <span className="text-primary block mb-2 md:mb-4">{personalInfo.name.split(' ')[0]}</span>
-              <span className="text-primary/20 dark:text-primary/40 text-outline leading-none break-words">
+              <span className="text-primary/55 dark:text-primary/40 text-outline leading-none break-words">
                 {personalInfo.name.split(' ').slice(1).join(' ')}
               </span>
             </motion.h1>
@@ -103,7 +122,7 @@ const Hero = () => {
               className="mt-2 md:mt-8 max-w-3xl relative"
             >
               <div className="absolute -left-12 top-2 w-8 h-px bg-primary/30 hidden lg:block" />
-              <p className="text-base md:text-xl lg:text-2xl font-display font-light text-black/80 dark:text-white/70 leading-relaxed">
+              <p className="text-base md:text-xl lg:text-2xl font-display font-light text-black dark:text-white/70 leading-relaxed">
                 {personalInfo.heroDescription}
               </p>
             </motion.div>
@@ -132,7 +151,7 @@ const Hero = () => {
                 <span className="text-4xl md:text-7xl lg:text-7xl font-display font-medium tracking-tighter text-black dark:text-white leading-none">
                   {personalInfo.experienceYears}<span className="text-primary">+</span>
                 </span>
-                <span className="text-[8px] md:text-[10px] font-mono tracking-widest text-primary/60 uppercase font-bold">Años de Maestría</span>
+                <span className="text-[8px] md:text-[10px] font-mono tracking-widest text-primary uppercase font-black">Años de Maestría</span>
               </div>
             </div>
           </motion.div>

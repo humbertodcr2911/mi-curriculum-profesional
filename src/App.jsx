@@ -44,7 +44,7 @@ function App() {
   }, []);
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${darkMode ? 'dark' : ''}`}>
+    <div className={`min-h-screen transition-all duration-700 ${darkMode ? 'dark bg-[#0A0A0B]' : 'bg-white'}`}>
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
       <main>
