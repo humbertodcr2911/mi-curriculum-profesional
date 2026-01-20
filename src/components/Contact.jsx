@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Mail, Linkedin, Github, MapPin, Send, MessageCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { cvData } from '../data/cvData';
+import bgGlobal from '../assets/bg_global.png';
 
 const Contact = () => {
   const { contact } = cvData;
@@ -52,6 +53,14 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative py-24 md:py-32 lg:py-60 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] transition-colors duration-700 overflow-hidden border-t border-primary/10">
+      {/* Cinematic Background Layer */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.06] dark:opacity-[0.12] grayscale invert dark:invert-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${bgGlobal})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white dark:from-[var(--color-bg-dark)] dark:via-transparent dark:to-[var(--color-bg-dark)]" />
+      </div>
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
 
         {/* Header - Massive Impact */}

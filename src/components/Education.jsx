@@ -2,12 +2,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Award, BookOpen, Quote } from 'lucide-react';
 import { cvData } from '../data/cvData';
+import bgNodes from '../assets/bg_nodes.png';
 
 const Education = () => {
   const { education, certifications, personalInfo } = cvData;
 
   return (
     <section id="education" className="relative py-24 md:py-32 lg:py-60 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] transition-colors duration-700 overflow-hidden border-t border-primary/10">
+      {/* Cinematic Background Layer */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.05] dark:opacity-[0.1] grayscale invert dark:invert-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${bgNodes})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white dark:from-[var(--color-bg-dark)] dark:via-transparent dark:to-[var(--color-bg-dark)]" />
+      </div>
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
 
         {/* Header - Massive Impact */}

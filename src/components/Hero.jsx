@@ -42,10 +42,10 @@ const Hero = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute inset-0 bg-cover bg-center opacity-[0.1] dark:opacity-[0.2] mix-blend-multiply dark:mix-blend-screen"
+          className="absolute inset-0 bg-cover bg-center opacity-[0.15] dark:opacity-[0.25] mix-blend-multiply dark:mix-blend-screen"
           style={{ backgroundImage: `url(${bgNodes})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white dark:via-transparent dark:to-[var(--color-bg-dark)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white dark:via-transparent dark:to-[var(--color-bg-dark)]" />
       </div>
 
       {/* Background Text Outline - More Layered */}

@@ -3,12 +3,21 @@ import { ArrowDownRight, ArrowUpRight, MapPin, Calendar, User } from 'lucide-rea
 import { motion } from 'framer-motion';
 import { cvData } from '../data/cvData';
 import techImage from '../assets/connectivity.png';
+import bgGlobal from '../assets/bg_global.png';
 
 const About = () => {
   const { personalInfo, contact } = cvData;
 
   return (
     <section id="about" className="relative py-24 md:py-40 lg:py-60 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] transition-colors duration-700 overflow-hidden border-t border-primary/10">
+      {/* Cinematic Background Layer */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.05] dark:opacity-[0.1] grayscale invert dark:invert-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${bgGlobal})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white dark:from-[var(--color-bg-dark)] dark:via-transparent dark:to-[var(--color-bg-dark)]" />
+      </div>
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 md:gap-20 lg:gap-16 xl:gap-24">
 

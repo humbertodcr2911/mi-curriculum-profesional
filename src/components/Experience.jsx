@@ -10,7 +10,7 @@ const Experience = () => {
   return (
     <section id="experience" className="relative py-24 md:py-40 lg:py-60 bg-white dark:bg-[#050505] transition-colors duration-700 overflow-hidden">
       {/* Technical Background Layer */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03] dark:opacity-[0.07] grayscale invert dark:invert-0">
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08] dark:opacity-[0.15] grayscale invert dark:invert-0">
         <div
           className="absolute inset-0 bg-[length:400px_400px] bg-repeat opacity-50"
           style={{ backgroundImage: `url(${bgCircuitry})` }}

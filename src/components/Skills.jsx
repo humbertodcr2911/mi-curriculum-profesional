@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { cvData } from '../data/cvData';
 import { Monitor, Server, Cpu, Zap, Code2, Layers } from 'lucide-react';
+import { cvData } from '../data/cvData';
+import bgCircuitry from '../assets/bg_circuitry.png';
 
 const Skills = () => {
   const { skills } = cvData;
@@ -14,6 +15,14 @@ const Skills = () => {
 
   return (
     <section id="skills" className="relative py-24 md:py-32 lg:py-60 bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] transition-colors duration-700 overflow-hidden border-t border-primary/10">
+      {/* Background Graphic Layer */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08] dark:opacity-[0.14] grayscale invert dark:invert-0">
+        <div
+          className="absolute inset-0 bg-[length:500px_500px] bg-repeat"
+          style={{ backgroundImage: `url(${bgCircuitry})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white dark:from-[var(--color-bg-dark)] dark:via-transparent dark:to-[var(--color-bg-dark)]" />
+      </div>
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
 
         {/* Header - Massive Impact */}
