@@ -5,7 +5,7 @@ import { cvData } from '../data/cvData';
 import { exportToPDF } from '../utils/pdfExport';
 import bgGlobal from '../assets/bg_global.png';
 
-const Header = ({ darkMode, setDarkMode }) => {
+const Header = ({ theme, setTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { personalInfo } = cvData;
@@ -20,6 +20,9 @@ const Header = ({ darkMode, setDarkMode }) => {
     e.preventDefault();
     exportToPDF(personalInfo.name.replace(/\s+/g, '_'));
   };
+
+  const prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = theme === 'dark' || (theme === 'system' && prefersDark);
 
   const navLinks = [
     { name: '01. SOBRE MÍ', href: '#about' },
@@ -64,19 +67,19 @@ const Header = ({ darkMode, setDarkMode }) => {
           {/* Theme Toggle & CTA */}
           <div className="flex items-center space-x-10">
             <button
-              onClick={() => setDarkMode(!darkMode)}
+              onClick={() => setTheme(isDark ? 'light' : 'dark')}
               className="relative p-2.5 rounded-full hover:bg-primary/10 transition-colors text-black/90 dark:text-white/60 hover:text-primary dark:hover:text-primary flex items-center justify-center overflow-hidden w-11 h-11 border border-primary/5"
               aria-label="Toggle theme"
             >
               <AnimatePresence mode="wait">
                 <motion.div
-                  key={darkMode ? 'sun' : 'moon'}
+                  key={isDark ? 'sun' : 'moon'}
                   initial={{ y: 20, opacity: 0, rotate: 45 }}
                   animate={{ y: 0, opacity: 1, rotate: 0 }}
                   exit={{ y: -20, opacity: 0, rotate: -45 }}
                   transition={{ duration: 0.3, ease: "anticipate" }}
                 >
-                  {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                  {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                 </motion.div>
               </AnimatePresence>
             </button>
@@ -91,12 +94,12 @@ const Header = ({ darkMode, setDarkMode }) => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center space-x-6">
+          <div className="lg:hidden flex items-center space-x-6">
           <button
-            onClick={() => setDarkMode(!darkMode)}
+            onClick={() => setTheme(isDark ? 'light' : 'dark')}
             className="p-2.5 rounded-full bg-primary/5 text-primary"
           >
-            {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+            {isDark ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
           </button>
           <button
             onClick={() => setIsOpen(!isOpen)}
