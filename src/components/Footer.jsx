@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { cvData } from '../data/cvData';
 import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 
@@ -12,20 +12,20 @@ const Footer = () => {
 
         {/* Big Closing Statement - Massive */}
         <div className="mb-24 md:mb-48">
-          <motion.h3
+          <Motion.h3
             className="text-[12vw] sm:text-[10vw] font-display font-medium leading-[1] md:leading-[0.8] tracking-tight break-words"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             ¿Diseñamos <br /> <span className="text-primary/30 dark:text-primary/50 text-outline italic">el mañana?</span>
-          </motion.h3>
+          </Motion.h3>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 md:gap-16 mb-24 md:mb-48 items-end">
           {/* Main Contacts - Horizontal & Bold */}
           <div className="lg:col-span-8 flex flex-wrap gap-8 md:gap-16 lg:gap-24">
-            <motion.div
+            <Motion.div
               className="group flex flex-col space-y-4 md:space-y-6"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -46,9 +46,9 @@ const Footer = () => {
                   </a>
                 ))}
               </div>
-            </motion.div>
+            </Motion.div>
 
-            <motion.a
+            <Motion.a
               href={contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
@@ -65,7 +65,7 @@ const Footer = () => {
               <span className="text-2xl md:text-4xl lg:text-5xl font-display font-medium border-b-2 border-primary/10 group-hover:border-primary group-hover:text-primary transition-all pb-1 md:pb-2">
                 LinkedIn
               </span>
-            </motion.a>
+            </Motion.a>
           </div>
 
           {/* Simple Description */}

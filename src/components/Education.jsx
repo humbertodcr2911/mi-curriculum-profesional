@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from "framer-motion";
 import { GraduationCap, Award, BookOpen, Quote } from 'lucide-react';
 import { cvData } from '../data/cvData';
 import bgNodes from '../assets/bg_nodes.png';
@@ -44,7 +44,7 @@ const Education = () => {
 
             <div className="space-y-16 md:space-y-32">
               {education.map((edu, index) => (
-                <motion.div
+                <Motion.div
                   key={edu.id}
                   className="group space-y-6 md:space-y-8"
                   initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ const Education = () => {
                       <GraduationCap className="w-5 h-5 md:w-6 md:h-6 text-primary group-hover:text-primary transition-colors shrink-0" />
                       <span className="text-xs md:text-sm font-mono text-primary font-black tracking-widest">{edu.period}</span>
                     </div>
-                    <span className="text-[8px] md:text-[10px] font-mono text-primary/10 group-hover:text-primary transition-colors uppercase font-black border border-primary/5 px-3 md:px-4 py-1 rounded-full whitespace-nowrap">INGENIERÍA</span>
+                    <span className="text-[8px] md:text-[10px] font-mono text-primary/10 group-hover:text-primary transition-colors uppercase font-black border border-primary/5 px-3 md:px-4 py-1 rounded-full whitespace-nowrap">ACADÉMICO</span>
                   </div>
                   <div className="space-y-4 md:space-y-6">
                     <h3 className="text-2xl md:text-4xl lg:text-5xl font-display font-medium text-black dark:text-white tracking-tight group-hover:text-primary group-hover:translate-x-2 md:group-hover:translate-x-6 transition-all duration-700 leading-tight">
@@ -70,7 +70,7 @@ const Education = () => {
                       {edu.description}
                     </p>
                   </div>
-                </motion.div>
+                </Motion.div>
               ))}
             </div>
           </div>
@@ -87,7 +87,7 @@ const Education = () => {
 
             <div className="space-y-4 md:space-y-6">
               {certifications.map((cert, index) => (
-                <motion.div
+                <Motion.div
                   key={index}
                   className="group flex items-center justify-between py-6 md:py-8 border-b-2 border-primary/5 hover:border-primary/20 transition-all"
                   initial={{ opacity: 0, x: 20 }}
@@ -99,12 +99,12 @@ const Education = () => {
                     {cert}
                   </span>
                   <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-primary/10 group-hover:bg-primary transition-all group-hover:scale-150 shadow-2xl shadow-primary shrink-0" />
-                </motion.div>
+                </Motion.div>
               ))}
             </div>
 
             {/* Quote / Philosophy - High Impact */}
-            <motion.div
+            <Motion.div
               className="mt-20 md:mt-48 pt-10 md:pt-20 bg-primary/[0.03] dark:bg-primary/[0.03] p-8 md:p-16 border border-primary/10 relative overflow-hidden group rounded-sm"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -115,7 +115,7 @@ const Education = () => {
               <p className="text-xl md:text-2xl lg:text-3xl font-display font-light text-black/90 dark:text-white/50 leading-tight italic relative z-10 group-hover:text-black dark:group-hover:text-white transition-all duration-700">
                 "{personalInfo.philosophy || 'Comprometido con la maestría técnica profunda en un estado de evolución permanente.'}"
               </p>
-            </motion.div>
+            </Motion.div>
           </div>
 
         </div>

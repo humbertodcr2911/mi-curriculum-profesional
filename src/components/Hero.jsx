@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { cvData } from '../data/cvData';
 import profileImg from '../assets/profile.png';
@@ -32,7 +32,7 @@ const Hero = () => {
     <section className="relative min-h-[110vh] flex flex-col justify-center bg-[var(--color-bg-light)] dark:bg-[var(--color-bg-dark)] transition-colors duration-700 overflow-hidden pt-32 md:pt-40 pb-16 md:pb-20">
       {/* Cinematic Background Overlay */}
       <div className="absolute inset-0 z-0">
-        <motion.div
+        <Motion.div
           animate={{
             scale: [1, 1.1, 1],
             opacity: [0.3, 0.4, 0.3]
@@ -50,18 +50,18 @@ const Hero = () => {
 
       {/* Background Text Outline - More Layered */}
       <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden">
-        <motion.span
+        <Motion.span
           className="text-[60vw] md:text-[40vw] font-display font-medium text-primary/10 dark:text-primary/[0.06] text-outline whitespace-nowrap"
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 2, ease: "easeOut" }}
         >
           {personalInfo.initials}
-        </motion.span>
+        </Motion.span>
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 w-full relative z-10">
-        <motion.div
+        <Motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -69,7 +69,7 @@ const Hero = () => {
         >
           {/* Top Bar: Availability & Profile Image */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 md:gap-12">
-            <motion.div variants={itemVariants} className="flex items-center space-x-6 md:space-x-8">
+            <Motion.div variants={itemVariants} className="flex items-center space-x-6 md:space-x-8">
               <div className="relative">
                 <div className="w-2.5 md:w-3 h-2.5 md:h-3 rounded-full bg-primary" />
                 <div className="absolute inset-0 w-2.5 md:w-3 h-2.5 md:h-3 rounded-full bg-primary animate-ping opacity-40" />
@@ -77,10 +77,10 @@ const Hero = () => {
               <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] md:tracking-[0.5em] text-black dark:text-white/60 uppercase font-black">
                 {personalInfo.availability}
               </span>
-            </motion.div>
+            </Motion.div>
 
             {/* Profile Image Container - Premium Floating */}
-            <motion.div
+            <Motion.div
               variants={itemVariants}
               className="relative group self-start md:self-auto"
             >
@@ -94,20 +94,20 @@ const Hero = () => {
                   />
                 </div>
                 {/* Floating Badge */}
-                <motion.div
+                <Motion.div
                   className="absolute -bottom-2 md:-bottom-4 -right-2 md:-right-4 bg-primary text-white p-2 md:p-4 rounded-lg md:rounded-xl shadow-2xl group-hover:translate-x-1 md:group-hover:translate-x-2 group-hover:-translate-y-1 md:group-hover:-translate-y-2 transition-transform duration-500"
                   initial={{ rotate: -12 }}
                   whileInView={{ rotate: 0 }}
                 >
                   <span className="text-[8px] md:text-[10px] font-mono font-black tracking-widest uppercase whitespace-nowrap">Senior Lead</span>
-                </motion.div>
+                </Motion.div>
               </div>
-            </motion.div>
+            </Motion.div>
           </div>
 
           {/* Main Title Stack - Massive Impact */}
           <div className="flex flex-col space-y-8 md:space-y-12">
-            <motion.h1
+            <Motion.h1
               variants={itemVariants}
               className="text-4xl sm:text-6xl md:text-8xl lg:text-6xl xl:text-8xl font-display font-medium leading-[1] md:leading-[0.9] tracking-tighter text-black dark:text-white"
             >
@@ -115,9 +115,9 @@ const Hero = () => {
               <span className="text-primary/55 dark:text-primary/40 text-outline leading-none break-words">
                 {personalInfo.name.split(' ').slice(1).join(' ')}
               </span>
-            </motion.h1>
+            </Motion.h1>
 
-            <motion.div
+            <Motion.div
               variants={itemVariants}
               className="mt-2 md:mt-8 max-w-3xl relative"
             >
@@ -125,11 +125,11 @@ const Hero = () => {
               <p className="text-base md:text-xl lg:text-2xl font-display font-light text-black dark:text-white/70 leading-relaxed">
                 {personalInfo.heroDescription}
               </p>
-            </motion.div>
+            </Motion.div>
           </div>
 
           {/* Core Focus / Tech Detail - More Structured */}
-          <motion.div
+          <Motion.div
             variants={itemVariants}
             className="flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-16 pt-8 md:pt-20 border-t-2 border-primary/10"
           >
@@ -154,12 +154,12 @@ const Hero = () => {
                 <span className="text-[8px] md:text-[10px] font-mono tracking-widest text-primary uppercase font-black">Años de Maestría</span>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </Motion.div>
+        </Motion.div>
       </div>
 
       {/* Modern Scroll Indicator - Larger */}
-      <motion.div
+      <Motion.div
         className="absolute bottom-8 right-8 md:bottom-12 md:right-12 hidden sm:flex flex-col items-center space-y-6 md:space-y-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -169,7 +169,7 @@ const Hero = () => {
           DESCUBRE MÁS
         </span>
         <div className="w-[1.5px] md:w-[2px] h-20 md:h-32 bg-primary/10 relative overflow-hidden">
-          <motion.div
+          <Motion.div
             className="absolute top-0 left-0 w-full bg-primary"
             animate={{
               height: ["0%", "100%", "0%"],
@@ -182,7 +182,7 @@ const Hero = () => {
             }}
           />
         </div>
-      </motion.div>
+      </Motion.div>
     </section>
   );
 };

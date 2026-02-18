@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { ArrowUpRight, Github, ExternalLink, Globe } from 'lucide-react';
 import { cvData } from '../data/cvData';
 import bgNodes from '../assets/bg_nodes.png';
@@ -33,7 +33,7 @@ const Projects = () => {
         {/* Projects Grid Container - Optimized Spacing */}
         <div className="grid md:grid-cols-2 gap-12 md:gap-20 lg:gap-16 xl:gap-24">
           {projects.map((project, index) => (
-            <motion.div
+            <Motion.div
               key={project.id}
               className="group flex flex-col space-y-8 md:space-y-12 pb-12 md:pb-24 border-b-2 border-primary/5"
               initial={{ opacity: 0, y: 30 }}
@@ -92,13 +92,13 @@ const Projects = () => {
                   </a>
                 )}
               </div>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
 
         {/* Global CTA - Massive */}
         <div className="mt-40 md:mt-60">
-          <motion.a
+          <Motion.a
             href={contact.github}
             target="_blank"
             rel="noopener noreferrer"
@@ -119,7 +119,7 @@ const Projects = () => {
                 <ArrowUpRight className="w-8 h-8 md:w-12 md:h-12 lg:w-16 lg:h-16 text-primary group-hover:text-white transition-all " />
               </div>
             </div>
-          </motion.a>
+          </Motion.a>
         </div>
       </div>
     </section>

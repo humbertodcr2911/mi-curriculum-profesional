@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowDownRight, ArrowUpRight, MapPin, Calendar, User } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from "framer-motion";
 import { cvData } from '../data/cvData';
 import techImage from '../assets/connectivity.png';
 import bgGlobal from '../assets/bg_global.png';
@@ -23,7 +23,7 @@ const About = () => {
 
           {/* Header */}
           <div className="lg:col-span-4">
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -62,7 +62,7 @@ const About = () => {
               </div>
 
               {/* Technical Connectivity Visual */}
-              <motion.div
+              <Motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -71,7 +71,7 @@ const About = () => {
               >
                 <div className="absolute -inset-4 bg-primary/5 rounded-2xl blur-2xl group-hover:bg-primary/10 transition-colors duration-700" />
                 <div className="relative overflow-hidden rounded-2xl border border-primary/10 bg-primary/5 p-2 transition-all duration-700 hover:border-primary/20">
-                  <motion.img
+                  <Motion.img
                     src={techImage}
                     alt="Network Symmetry"
                     className="w-full h-auto rounded-xl grayscale-[0.8] brightness-110 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
@@ -88,13 +88,13 @@ const About = () => {
                     <p className="text-[10px] font-mono font-black tracking-widest text-primary uppercase text-center">Conectividad Global & Sistemas Críticos</p>
                   </div>
                 </div>
-              </motion.div>
-            </motion.div>
+              </Motion.div>
+            </Motion.div>
           </div>
 
           {/* Bio Content */}
           <div className="lg:col-span-8 lg:pt-32 xl:pt-48">
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -134,7 +134,7 @@ const About = () => {
                   </a>
                 )}
               </div>
-            </motion.div>
+            </Motion.div>
           </div>
         </div>
       </div>

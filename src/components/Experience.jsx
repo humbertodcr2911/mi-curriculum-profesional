@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { cvData } from '../data/cvData';
 import bgCircuitry from '../assets/bg_circuitry.png';
 import { Briefcase, Calendar, ChevronRight } from 'lucide-react';
@@ -34,7 +34,7 @@ const Experience = () => {
         {/* Content - More Spacious */}
         <div className="space-y-0">
           {experiences.map((exp, index) => (
-            <motion.div
+            <Motion.div
               key={exp.id}
               className="group relative border-t-2 border-primary/5 dark:border-primary/5 py-12 md:py-24 transition-all duration-700 hover:bg-primary/[0.01]"
               initial={{ opacity: 0, y: 30 }}
@@ -90,7 +90,7 @@ const Experience = () => {
                 </div>
 
               </div>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
       </div>

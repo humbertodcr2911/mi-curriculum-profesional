@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, Mail, Linkedin, Github, MapPin, Send, MessageCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { cvData } from '../data/cvData';
@@ -89,9 +89,9 @@ const Contact = () => {
                 </div>
                 <div className="flex flex-col space-y-2">
                   {contact.emails.map((email, i) => (
-                    <p key={i} className="text-xl md:text-2xl font-display italic text-black dark:text-white hover:text-primary transition-colors cursor-pointer break-all">
+                    <a key={i} href={`mailto:${email}`} className="text-xl md:text-2xl font-display italic text-black dark:text-white hover:text-primary transition-colors cursor-pointer break-all">
                       {email}
-                    </p>
+                    </a>
                   ))}
                 </div>
               </div>
@@ -139,7 +139,7 @@ const Contact = () => {
           <div className="lg:col-span-8">
             <AnimatePresence mode="wait">
               {isSubmitted ? (
-                <motion.div
+                <Motion.div
                   className="h-full flex flex-col justify-center space-y-8 md:space-y-12"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -154,7 +154,7 @@ const Contact = () => {
                   <p className="text-xl md:text-2xl font-display font-light text-black/70 dark:text-white/60 leading-relaxed max-w-xl">
                     He recibido tu consulta con éxito. Me pondré en contacto contigo en breve para discutir cómo podemos colaborar.
                   </p>
-                </motion.div>
+                </Motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-10 md:space-y-16">
                   <div className="grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-24">
@@ -212,7 +212,7 @@ const Contact = () => {
                   </div>
 
                   <div className="pt-8 md:pt-16">
-                    <motion.button
+                    <Motion.button
                       type="submit"
                       disabled={isSubmitting}
                       whileHover={{ scale: 1.02 }}
@@ -221,7 +221,7 @@ const Contact = () => {
                     >
                       <span>{isSubmitting ? 'ENVIANDO...' : 'TRANSMITIR MENSAJE'}</span>
                       <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                    </motion.button>
+                    </Motion.button>
                   </div>
                 </form>
               )}

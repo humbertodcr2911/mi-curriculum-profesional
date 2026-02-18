@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Monitor, Server, Cpu, Zap, Code2, Layers } from 'lucide-react';
 import { cvData } from '../data/cvData';
 import bgCircuitry from '../assets/bg_circuitry.png';
@@ -10,7 +10,8 @@ const Skills = () => {
   const categories = [
     { title: 'STACK FRONTEND', items: skills.frontend, icon: <Monitor className="w-8 h-8" />, color: 'primary' },
     { title: 'ARQUITECTURA BACKEND', items: skills.backend, icon: <Server className="w-8 h-8" />, color: 'primary' },
-    { title: 'DEVOPS & INFRAESTRUCTURA', items: skills.tools, icon: <Cpu className="w-8 h-8" />, color: 'primary' }
+    { title: 'INFRAESTRUCTURA & NUBE', items: skills.infrastructure, icon: <Layers className="w-8 h-8" />, color: 'primary' },
+    { title: 'HERRAMIENTAS & QA', items: skills.tools, icon: <Cpu className="w-8 h-8" />, color: 'primary' }
   ];
 
   return (
@@ -37,9 +38,9 @@ const Skills = () => {
         </div>
 
         {/* Technical Grid - Enhanced Prominence */}
-        <div className="grid lg:grid-cols-3 gap-16 md:gap-24 lg:gap-32">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-16 md:gap-24 lg:gap-32">
           {categories.map((cat, i) => (
-            <motion.div
+            <Motion.div
               key={cat.title}
               className="space-y-10 md:space-y-16"
               initial={{ opacity: 0, y: 30 }}
@@ -74,12 +75,12 @@ const Skills = () => {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </Motion.div>
           ))}
         </div>
 
         {/* Human Focus / Soft Skills - Redesigned */}
-        <motion.div
+        <Motion.div
           className="mt-32 md:mt-48 lg:mt-60 pt-24 md:pt-40 lg:pt-60 border-t-2 border-primary/10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -101,7 +102,7 @@ const Skills = () => {
             <div className="lg:col-span-7">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 md:gap-y-16 gap-x-12 md:gap-x-20">
                 {skills.soft.map((skill, idx) => (
-                  <motion.div
+                  <Motion.div
                     key={skill}
                     className="group space-y-4 md:space-y-6"
                     initial={{ opacity: 0, y: 20 }}
@@ -116,12 +117,12 @@ const Skills = () => {
                       </h4>
                     </div>
                     <div className="h-[2px] w-full bg-primary/5 group-hover:bg-primary/20 transition-all duration-700 origin-left scale-x-50 group-hover:scale-x-100" />
-                  </motion.div>
+                  </Motion.div>
                 ))}
               </div>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </section>
   );
