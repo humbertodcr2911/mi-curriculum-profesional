@@ -26,7 +26,7 @@ const Projects = () => {
             <div className="h-px w-16 md:w-24 bg-primary/20" />
           </div>
           <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-display font-medium text-black dark:text-white tracking-tight leading-tight break-words">
-            Proyectos <br /> <span className="text-primary/55 dark:text-primary/50 text-outline italic">Curados</span>
+            Proyectos <br /> <span className="text-primary/55 dark:text-primary/50 text-outline italic">Creados</span>
           </h2>
         </div>
 
