@@ -11,9 +11,28 @@ const Header = ({ theme, setTheme }) => {
   const { personalInfo } = cvData;
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Create a sentinel element at the top of the body to detect scroll
+    const sentinel = document.createElement('div');
+    sentinel.style.position = 'absolute';
+    sentinel.style.top = '0';
+    sentinel.style.height = '1px';
+    sentinel.style.width = '1px';
+    sentinel.id = 'scroll-sentinel';
+    document.body.prepend(sentinel);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // If the sentinel is not intersecting, it means we have scrolled down
+        setScrolled(!entry.isIntersecting);
+      },
+      { threshold: [0], rootMargin: '-10px 0px 0px 0px' }
+    );
+
+    observer.observe(sentinel);
+    return () => {
+      observer.disconnect();
+      sentinel.remove();
+    };
   }, []);
 
   const handleExportPDF = (e) => {
@@ -34,7 +53,7 @@ const Header = ({ theme, setTheme }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 no-print ${scrolled ? 'bg-white dark:bg-[#050505] shadow-2xl py-4 border-b border-primary/20' : 'bg-transparent py-10'
+      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 no-print ${scrolled ? 'bg-white/95 dark:bg-[#050505]/95 backdrop-blur-xl shadow-2xl py-4 border-b border-primary/20' : 'bg-transparent py-10'
         }`}
     >
       <nav className="max-w-[1400px] mx-auto px-8 sm:px-12 lg:px-16 flex justify-between items-center text-black dark:text-white">
