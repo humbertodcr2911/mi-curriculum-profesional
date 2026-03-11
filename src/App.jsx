@@ -72,13 +72,6 @@ function App() {
 
   return (
     <IonApp>
-      <Header 
-        theme={theme} 
-        setTheme={setTheme} 
-        scrolledForce={scrolled} 
-        menuOpen={isMenuOpen}
-        setMenuOpen={setIsMenuOpen}
-      />
       <IonContent 
         ref={contentRef} 
         scrollEvents={true} 
@@ -104,6 +97,13 @@ function App() {
           </div>
         </div>
       </IonContent>
+      <Header 
+        theme={theme} 
+        setTheme={setTheme} 
+        scrolledForce={scrolled} 
+        menuOpen={isMenuOpen}
+        setMenuOpen={setIsMenuOpen}
+      />
       <ScrollToTop 
         scrolledForce={scrolled && !isMenuOpen} 
         onScrollToTop={scrollToTop} 
