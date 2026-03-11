@@ -11,6 +11,8 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import PDFResume from './components/PDFResume';
 
+import { IonApp, IonContent, setupIonicReact } from '@ionic/react';
+
 function App() {
   // theme: 'light' | 'dark' | 'system'
   const [theme, setTheme] = useState(() => {
@@ -55,27 +57,31 @@ function App() {
   const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   return (
-    <div className={`min-h-screen transition-all duration-700 ${isDark ? 'dark bg-[#0A0A0B]' : 'bg-white'}`}>
-      <Header theme={theme} setTheme={setTheme} />
+    <IonApp>
+      <IonContent>
+        <div className={`min-h-screen transition-all duration-700 ${isDark ? 'dark bg-[#0A0A0B]' : 'bg-white'}`}>
+          <Header theme={theme} setTheme={setTheme} />
 
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Education />
-        <Contact />
-      </main>
+          <main>
+            <Hero />
+            <About />
+            <Experience />
+            <Skills />
+            <Projects />
+            <Education />
+            <Contact />
+          </main>
 
-      <Footer />
-      <ScrollToTop />
+          <Footer />
+          <ScrollToTop />
 
-      {/* Hidden PDF Template */}
-      <div style={{ position: 'absolute', left: '-9999px', top: '0' }}>
-        <PDFResume />
-      </div>
-    </div>
+          {/* Hidden PDF Template */}
+          <div style={{ position: 'absolute', left: '-9999px', top: '0' }}>
+            <PDFResume />
+          </div>
+        </div>
+      </IonContent>
+    </IonApp>
   );
 }
 

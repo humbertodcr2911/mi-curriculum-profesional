@@ -9,7 +9,7 @@ export const cvData = {
     aboutHistory: [
       "Graduado de la Universidad Nacional Experimental Politécnica (UNEXPO), mi carrera se ha forjado en la intersección de la ingeniería de sistemas y el desarrollo de software crítico.",
       "Con una sólida base en arquitecturas Java, Core Banking y ecosistemas .NET, actualmente lidero la automatización en Amagi, integrando monitoreo de auditoría en MongoDB y visualización en Grafana para asegurar la excelencia operativa.",
-      "Mi trayectoria abarca desde el desarrollo de procesos estadísticos complejos con lenguaje R hasta la optimización de flujos de datos masivos para las principales entidades bancarias de Venezuela."
+      "Mi trayectoria abarca desde el desarrollo de procesos estadísticos complejos con lenguaje R y la creación de aplicaciones móviles híbridas con Ionic/Capacitor, hasta la optimización de flujos de datos masivos para las principales entidades bancarias de Venezuela."
     ],
     initials: "HC",
     profileImage: "/src/assets/profile.png",
@@ -114,7 +114,8 @@ export const cvData = {
       { name: 'React / Next.js / Vite', level: 90 },
       { name: 'JavaScript / TypeScript', level: 95 },
       { name: 'CSS3 / Tailwind / Material UI', level: 90 },
-      { name: 'Bootstrap / Responsive Design', level: 95 }
+      { name: 'Bootstrap / Responsive Design', level: 95 },
+      { name: 'Ionic / Capacitor / Cordova', level: 90 }
     ],
     backend: [
       { name: 'Arquitectura Java (Spring Boot / Play)', level: 95 },
@@ -182,6 +183,13 @@ export const cvData = {
       title: "Gestión Médica & Insumos (NDC Solutions)",
       description: "Desarrollo de módulos integrales: Control de Insumos Médicos, Control de Citas Médicas y Odontológicas, Historial Médico e Historial Odontológico. Sistema diseñado para alta concurrencia y seguridad de datos sensibles.",
       technologies: ["Angular", "Spring Boot", "Oracle", "Java", "SQL Server"],
+      featured: true
+    },
+    {
+      id: 6,
+      title: "Soluciones Móviles Enterprise (Ionic & Capacitor)",
+      description: "Desarrollo y despliegue de aplicaciones móviles híbridas de alto rendimiento, integrando funcionalidades nativas mediante Capacitor y Cordova para ecosistemas empresariales.",
+      technologies: ["Ionic", "Capacitor", "Cordova", "React", "Angular", "Android/iOS"],
       featured: true
     }
   ],
