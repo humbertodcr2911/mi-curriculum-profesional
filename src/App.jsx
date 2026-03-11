@@ -56,12 +56,22 @@ function App() {
 
   const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
+  const [scrolled, setScrolled] = useState(false);
+  const contentRef = React.useRef(null);
+
+  const handleScroll = (ev) => {
+    setScrolled(ev.detail.scrollTop > 50);
+  };
+
+  const scrollToTop = () => {
+    contentRef.current?.scrollToTop(500);
+  };
+
   return (
     <IonApp>
-      <IonContent>
+      <Header theme={theme} setTheme={setTheme} scrolledForce={scrolled} />
+      <IonContent ref={contentRef} scrollEvents={true} onIonScroll={handleScroll}>
         <div className={`min-h-screen transition-all duration-700 ${isDark ? 'dark bg-[#0A0A0B]' : 'bg-white'}`}>
-          <Header theme={theme} setTheme={setTheme} />
-
           <main>
             <Hero />
             <About />
@@ -73,14 +83,14 @@ function App() {
           </main>
 
           <Footer />
-          <ScrollToTop />
-
+          
           {/* Hidden PDF Template */}
           <div style={{ position: 'absolute', left: '-9999px', top: '0' }}>
             <PDFResume />
           </div>
         </div>
       </IonContent>
+      <ScrollToTop scrolledForce={scrolled} onScrollToTop={scrollToTop} />
     </IonApp>
   );
 }

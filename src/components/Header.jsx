@@ -5,36 +5,13 @@ import { cvData } from '../data/cvData';
 import { exportToPDF } from '../utils/pdfExport';
 import bgGlobal from '../assets/bg_global.png';
 
-const Header = ({ theme, setTheme }) => {
+const Header = ({ theme, setTheme, scrolledForce }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const scrolled = scrolledForce;
   const { personalInfo } = cvData;
 
-  useEffect(() => {
-    // Create a sentinel element at the top of the body to detect scroll
-    const sentinel = document.createElement('div');
-    sentinel.style.position = 'absolute';
-    sentinel.style.top = '0';
-    sentinel.style.height = '1px';
-    sentinel.style.width = '1px';
-    sentinel.id = 'scroll-sentinel';
-    document.body.prepend(sentinel);
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // If the sentinel is not intersecting, it means we have scrolled down
-        setScrolled(!entry.isIntersecting);
-      },
-      { threshold: [0], rootMargin: '-10px 0px 0px 0px' }
-    );
-
-    observer.observe(sentinel);
-    return () => {
-      observer.disconnect();
-      sentinel.remove();
-    };
-  }, []);
-
+  // Internal scroll detection removed in favor of scrolledForce prop from App.jsx
+  
   const handleExportPDF = (e) => {
     e.preventDefault();
     exportToPDF(personalInfo.name.replace(/\s+/g, '_'));
@@ -137,37 +114,42 @@ const Header = ({ theme, setTheme }) => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 bg-white dark:bg-[#0A0A0B] p-6 sm:p-12 lg:hidden flex flex-col justify-start items-start space-y-8 overflow-y-auto"
+            className="fixed inset-0 z-[110] bg-white dark:bg-[#0A0A0B] p-6 sm:p-12 lg:hidden flex flex-col justify-start items-start overflow-y-auto"
           >
             {/* Cinematic Menu Background */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 z-0 bg-white dark:bg-[#0A0A0B]">
               <div
-                className="absolute inset-0 bg-cover bg-center opacity-[0.05] dark:opacity-[0.15] scale-125"
+                className="absolute inset-0 bg-cover bg-center opacity-[0.05] dark:opacity-[0.1] scale-125"
                 style={{ backgroundImage: `url(${bgGlobal})` }}
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-white via-white/90 to-transparent dark:from-[#0A0A0B] dark:via-[#0A0A0B]/90 dark:to-transparent" />
+              <div className="absolute inset-0 bg-white/95 dark:bg-[#0A0A0B]/98" />
             </div>
 
-            <div className="relative z-10 w-full flex flex-col space-y-12">
-              <div className="absolute top-0 right-0 flex items-center gap-4">
-                <button
-                  onClick={() => setTheme(isDark ? 'light' : 'dark')}
-                  className="p-3 rounded-full bg-primary/5 text-primary"
-                  aria-label="Toggle theme"
-                >
-                  {isDark ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
-                </button>
-                <button
-                  className="p-3 text-primary border border-primary/20 rounded-sm"
-                  onClick={() => setIsOpen(false)}
-                  aria-label="Close menu"
-                >
-                  <X className="w-8 h-8" />
-                </button>
+            <div className="relative z-10 w-full flex flex-col min-h-full">
+              <div className="flex justify-between items-center w-full mb-12">
+                <div className="text-2xl font-display font-bold tracking-tighter flex items-center gap-2 group">
+                  <span className="text-primary">{personalInfo.initials}</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={() => setTheme(isDark ? 'light' : 'dark')}
+                    className="p-3 rounded-full bg-primary/5 text-primary"
+                    aria-label="Toggle theme"
+                  >
+                    {isDark ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+                  </button>
+                  <button
+                    className="p-3 text-primary border border-primary/20 rounded-sm"
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Close menu"
+                  >
+                    <X className="w-8 h-8" />
+                  </button>
+                </div>
               </div>
 
-              <nav className="flex flex-col items-start space-y-6 sm:space-y-8 w-full pl-4 overflow-y-auto max-h-[75vh] pt-12">
-                <span className="text-[10px] font-mono tracking-[0.5em] text-primary/40 uppercase mb-2">NAVEGACIÓN</span>
+              <nav className="flex flex-col items-start space-y-8 w-full pl-4 py-8">
+                <span className="text-[10px] font-mono tracking-[0.5em] text-primary/40 uppercase mb-4">NAVEGACIÓN</span>
                 {navLinks.map((link, idx) => (
                   <Motion.a
                     key={link.name}
@@ -185,7 +167,7 @@ const Header = ({ theme, setTheme }) => {
                 <Motion.a
                   href="#"
                   onClick={handleExportPDF}
-                  className="mt-8 text-[11px] font-black tracking-[0.4em] uppercase bg-primary text-white px-8 py-4 rounded-sm shadow-2xl shadow-primary/40 flex items-center gap-4"
+                  className="mt-8 text-[11px] font-black tracking-[0.4em] uppercase bg-primary text-white px-8 py-4 rounded-sm shadow-2xl shadow-primary/40 flex items-center gap-4 w-fit"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8 }}
@@ -194,8 +176,8 @@ const Header = ({ theme, setTheme }) => {
                 </Motion.a>
               </nav>
 
-              <div className="absolute bottom-12 left-12">
-                <span className="text-[10px] font-mono tracking-widest text-black/20 dark:text-white/20 uppercase">Caracas, Venezuela — {new Date().getFullYear()}</span>
+              <div className="mt-auto pt-12 pb-8">
+                <span className="text-[10px] font-mono tracking-widest text-black/40 dark:text-white/40 uppercase">Caracas, Venezuela — {new Date().getFullYear()}</span>
               </div>
             </div>
           </Motion.div>
