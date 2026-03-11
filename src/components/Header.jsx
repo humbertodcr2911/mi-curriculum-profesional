@@ -5,8 +5,9 @@ import { cvData } from '../data/cvData';
 import { exportToPDF } from '../utils/pdfExport';
 import bgGlobal from '../assets/bg_global.png';
 
-const Header = ({ theme, setTheme, scrolledForce }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Header = ({ theme, setTheme, scrolledForce, menuOpen, setMenuOpen }) => {
+  const isOpen = menuOpen;
+  const setIsOpen = setMenuOpen;
   const scrolled = scrolledForce;
   const { personalInfo } = cvData;
 

@@ -57,10 +57,13 @@ function App() {
   const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const contentRef = React.useRef(null);
 
   const handleScroll = (ev) => {
-    setScrolled(ev.detail.scrollTop > 50);
+    if (!isMenuOpen) {
+      setScrolled(ev.detail.scrollTop > 50);
+    }
   };
 
   const scrollToTop = () => {
@@ -69,8 +72,19 @@ function App() {
 
   return (
     <IonApp>
-      <Header theme={theme} setTheme={setTheme} scrolledForce={scrolled} />
-      <IonContent ref={contentRef} scrollEvents={true} onIonScroll={handleScroll}>
+      <Header 
+        theme={theme} 
+        setTheme={setTheme} 
+        scrolledForce={scrolled} 
+        menuOpen={isMenuOpen}
+        setMenuOpen={setIsMenuOpen}
+      />
+      <IonContent 
+        ref={contentRef} 
+        scrollEvents={true} 
+        onIonScroll={handleScroll}
+        scrollY={!isMenuOpen}
+      >
         <div className={`min-h-screen transition-all duration-700 ${isDark ? 'dark bg-[#0A0A0B]' : 'bg-white'}`}>
           <main>
             <Hero />
@@ -90,7 +104,10 @@ function App() {
           </div>
         </div>
       </IonContent>
-      <ScrollToTop scrolledForce={scrolled} onScrollToTop={scrollToTop} />
+      <ScrollToTop 
+        scrolledForce={scrolled && !isMenuOpen} 
+        onScrollToTop={scrollToTop} 
+      />
     </IonApp>
   );
 }
