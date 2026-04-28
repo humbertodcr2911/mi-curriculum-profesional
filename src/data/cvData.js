@@ -8,7 +8,7 @@ export const cvData = {
     heroDescription: "Ingeniero de Sistemas con más de 8 años de trayectoria, experto en el ciclo de vida completo de software de alta criticidad. Especializado en arquitectura Full Stack, automatización bancaria y despliegue en entornos productivos. Poseo amplia experiencia en la implementación, soporte L3 y mantenimiento evolutivo de sistemas masivos, así como en la gestión avanzada de servidores de aplicaciones y bases de datos corporativas.",
     aboutHistory: [
       "Graduado de la Universidad Nacional Experimental Politécnica (UNEXPO), mi carrera se ha forjado en la intersección de la ingeniería de sistemas y el desarrollo de software crítico.",
-      "Con una sólida base en arquitecturas Java, Core Banking y ecosistemas .NET, actualmente lidero la automatización en Amagi, integrando monitoreo de auditoría en MongoDB y visualización en Grafana para asegurar la excelencia operativa.",
+      "Con una sólida base en arquitecturas Java, Core Banking y ecosistemas .NET, actualmente lidero la automatización en Amagi, implementando simulaciones de pagos mediante servicios Mock y asegurando despliegues ágiles con Docker, además de integrar monitoreo en MongoDB y Grafana para asegurar la excelencia operativa.",
       "Mi trayectoria abarca desde el desarrollo de procesos estadísticos complejos con lenguaje R y la creación de aplicaciones móviles híbridas con Ionic/Capacitor, hasta la optimización de flujos de datos masivos para las principales entidades bancarias de Venezuela."
     ],
     initials: "HC",
@@ -26,6 +26,8 @@ export const cvData = {
       achievements: [
         "Diseño y desarrollo de Dashboard premium en React para el monitoreo y gestión de pruebas automatizadas en tiempo real",
         "Arquitectura de suite de pruebas con Selenium y Python para flujos críticos y procesos OTP bancarios",
+        "Desarrollo e implementación de servicios Mock para la simulación de flujos de pagos de servicios bancarios",
+        "Contenerización y despliegue de aplicaciones utilizando Docker para la optimización de entornos",
         "Configuración de tableros en Grafana para visualización de métricas de ejecución y salud de infraestructura",
         "Análisis y validación de integridad mediante consultas avanzadas en MongoDB",
         "Orquestación técnica Java/Python para el ecosistema de automatización corporativo"
